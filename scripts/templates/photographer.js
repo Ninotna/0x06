@@ -16,9 +16,9 @@ function photographerTemplate(data) {
 
         const lienPagePhotograph = document.createElement( 'a' );
         lienPagePhotograph.setAttribute("href", `photographer.html?id=${id}`)
-        img.setAttribute("alt", `Portrait de ${name}`);
-		img.setAttribute("aria-label", `Voir le profil de ${name}`);
-        img.setAttribute("role", "link");
+        lienPagePhotograph.setAttribute("title", `Portrait de ${name}`);
+		lienPagePhotograph.setAttribute("aria-label", `Voir le profil de ${name}`);
+        lienPagePhotograph.setAttribute("role", "link");
 
         const pLocation = document.createElement( 'p' );
         pLocation.setAttribute("class", "ph_location");
@@ -41,5 +41,6 @@ function photographerTemplate(data) {
 
         return (article);
     }
+    
     return { name, picture, getUserCardDOM }
 }
