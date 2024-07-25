@@ -4,15 +4,16 @@
     padding: 0;
 }
 
-:root{
-    --color-primary: #901C1C;
-    --color-secondary: #DB8876;
-    --color-tertiary: #D3573C;
-    --color-dark: #000;
-    --color-dark-medium: #757575;
-    --color-light: #fff;
-    --color-light-medium: #FAFAFA;
-    --color-label: #312E2E;
+:root {
+    /* Couleurs Primaires */
+    --primary-color-dark: #901C1C; /* AAA */
+    --primary-color-light: #D3573C; /* AAA */
+
+    /* Couleurs Secondaires */
+    --secondary-color-light: #D3573C; /* AA */
+    --secondary-color-gray: #525252; /* AAA */
+    --secondary-color-white: #FAFAFA; /* AAA */
+    --secondary-color-dark: #901C1C; /* AAA */
 }
 
 html{
