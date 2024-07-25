@@ -7,8 +7,12 @@ function photographerTemplate(data) {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+		img.setAttribute("alt", `Portrait de ${name}`);
+		img.setAttribute("aria-label", `Portrait de ${name}`);
+        
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+
         const pLocation = document.createElement( 'p' );
         pLocation.setAttribute("class", "ph_location");
         pLocation.textContent = `${city}, ${country}`;
