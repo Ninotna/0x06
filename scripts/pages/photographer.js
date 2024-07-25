@@ -27,6 +27,7 @@ function loadPhotographerData(id) {
 			}
 		})
 		.catch(error => console.error('Erreur lors du chargement des données:', error));
+		
 		console.log('Fin de loadPhotographer');
 }
 
