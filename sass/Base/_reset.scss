@@ -1,0 +1,71 @@
+@import "../Utils/variables";
+@import "../Utils/mixins";
+
+//Normalization & typography
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-bg-color);
+    transition: background-color 250ms ease-in-out;
+    min-height: 100vh;
+    font-family: 'DM Sans', 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-family: 'DM Sans', 'Courier New', Courier, monospace;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    select {
+        border: none;
+        font-family: 'DM Sans', 'Courier New', Courier, monospace;
+    }
+
+    label {
+
+        &:hover {
+            cursor: pointer;
+    
+        }
+    }
+
+    input {
+        border: none;
+    
+    
+    }
+    
+    
+    textarea {
+        border: none;
+        resize: none;
+    
+    
+    }
+    
+    ul {
+        list-style-type: none;
+    }
+
+
+}

@@ -1,3 +1,115 @@
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  transition: background-color 250ms ease-in-out;
+  min-height: 100vh;
+  font-family: "DM Sans", "Courier New", Courier, monospace;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-family: "DM Sans", "Courier New", Courier, monospace;
+}
+button:hover {
+  cursor: pointer;
+}
+button select {
+  border: none;
+  font-family: "DM Sans", "Courier New", Courier, monospace;
+}
+button label:hover {
+  cursor: pointer;
+}
+button input {
+  border: none;
+}
+button textarea {
+  border: none;
+  resize: none;
+}
+button ul {
+  list-style-type: none;
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
 
 /*# sourceMappingURL=newstyle.css.map */

@@ -1,0 +1,89 @@
+//SASS Variables
+$body-bg-color: white;
+
+$buttons-color: white;
+$buttons-color--hover: black;
+$buttons-color--focus: black;
+$buttons-color--active: white;
+
+$buttons-bg-color: #901C1C;
+$buttons-bg-color--hover: #DB8876;
+$buttons-bg-color--focus: #DB8876;
+$buttons-bg-color--active: darken($buttons-bg-color, 10%);
+
+$text-color-primary: #D3573C;
+$text-color-secondary: #901C1C;
+$text-color-tertiary: black;
+$text-color-quaternary: #757575;
+
+//For the photographers page
+$text-color-slogan: #525252;
+$text-color-invoice: black;
+
+$modal-backdrop-bg-color: #c4c4c4;
+$modal-bg-color: #DB8876;
+$modal-shadow-color: #0a0a0a4d;
+$modal-lightbox-backdrop-bg-color: #E5E5E5;
+
+$input-message-color: white;
+$input-bg-color--invalid: #430000;
+$input-outline-color--invalid: #bc0f0f;
+
+$input-bg-color--valid: #004300;
+$input-outline-color--valid: limegreen;
+//
+
+$bg-color-primary: #D3573C;
+$bg-color-secondary: #901C1C;
+$bg-color-tertiary: black;
+$bg-color-quaternary: #757575;
+
+$bg-color-likes-invoice: #DB8876;
+
+//CSS Variables
+:root {
+    //Color variables
+    --body-bg-color: #{$body-bg-color};
+
+    --buttons-color:#{$buttons-color};
+    --buttons-color--hover:#{$buttons-color--hover};
+    --buttons-color--focus:#{$buttons-color--focus};
+
+    --buttons-bg-color:#{$buttons-bg-color};
+    --buttons-bg-color--hover:#{$buttons-bg-color--hover};
+    --buttons-bg-color--active:#{$buttons-bg-color--active};
+    --buttons-bg-color--focus:#{$buttons-bg-color--focus};
+
+
+    --text-color-primary:#{$text-color-primary};
+    --text-color-secondary:#{$text-color-secondary};
+    --text-color-tertiary:#{$text-color-tertiary};
+    --text-color-quaternary:#{$text-color-quaternary};
+
+    //For the photographers page
+    --text-color-slogan:#{$text-color-slogan};
+    --text-color-invoice:#{$text-color-invoice};
+    --modal-backdrop-bg-color:#{$modal-backdrop-bg-color};
+    --modal-bg-color:#{$modal-bg-color};
+    --modal-shadow-color:#{$modal-shadow-color};
+    --modal-lightbox-backdrop-bg-color:#{$modal-lightbox-backdrop-bg-color};
+
+    --input-message-color: #{$input-message-color};
+
+    --input-bg-color--invalid: #{$input-bg-color--invalid};
+    --input-outline-color--invalid: #{$input-outline-color--invalid};
+
+    --input-bg-color--valid:#{$input-bg-color--valid};
+    --input-outline-color--valid:#{$input-outline-color--valid};
+    //
+
+    --bg-color-primary:#{$bg-color-primary};
+    --bg-color-secondary:#{$bg-color-secondary};
+    --bg-color-tertiary:#{$bg-color-tertiary};
+    --bg-color-quaternary:#{$bg-color-quaternary};
+
+    --bg-color-likes-invoice: #{$bg-color-likes-invoice};
+
+    //Pixel variables
+    --buttons-border-radius: 5px;
+}

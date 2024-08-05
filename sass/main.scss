@@ -1,14 +1,17 @@
-
-
-
 // Base
+@import "./Base/reset";
 
 // Utils
-
+@import "./Utils/variables";
+@import "./Utils/mixins";
 
 // Components
 
+// Layout
+@import "./Layout/header";
+@import "./Layout/footer";
+
 //Pages
-// @import "./Pages/main-page";
-// @import "./Pages/photographer-page";
+@import "./Pages/main-page";
+@import "./Pages/photographer-page";
 
