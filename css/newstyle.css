@@ -30,38 +30,6 @@
   --buttons-border-radius: 5px;
 }
 
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
 *,
 ::before,
 ::after {
@@ -112,134 +80,6 @@ button ul {
   list-style-type: none;
 }
 
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
 .button {
   padding: 19px 23px;
   font-size: 18px;
@@ -258,139 +98,11 @@ button ul {
   border-radius: var(--buttons-border-radius);
 }
 
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
 .label {
   color: var(--text-color-tertiary);
   font-weight: 700;
   font-weight: 700;
   font-size: 18px;
-}
-
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
-}
-
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
 }
 
 .header {
@@ -421,68 +133,103 @@ button ul {
   font-family: "DM Sans";
 }
 
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
+.main {
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .main {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 993px) and (max-width: 1150px) {
+  .main {
+    margin-bottom: 50px;
+  }
+}
+.main__cards-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+@media screen and (max-width: 768px) {
+  .main__cards-container {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 35px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .main__cards-container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+}
+@media screen and (min-width: 993px) and (max-width: 1150px) {
+  .main__cards-container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
 }
 
-:root {
-  --body-bg-color: white;
-  --buttons-color:white;
-  --buttons-color--hover:black;
-  --buttons-color--focus:black;
-  --buttons-bg-color:#901C1C;
-  --buttons-bg-color--hover:#DB8876;
-  --buttons-bg-color--active:#651414;
-  --buttons-bg-color--focus:#DB8876;
-  --text-color-primary:#D3573C;
-  --text-color-secondary:#901C1C;
-  --text-color-tertiary:black;
-  --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
-  --modal-backdrop-bg-color:#c4c4c4;
-  --modal-bg-color:#DB8876;
-  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
-  --modal-lightbox-backdrop-bg-color:#E5E5E5;
-  --input-message-color: white;
-  --input-bg-color--invalid: #430000;
-  --input-outline-color--invalid: #bc0f0f;
-  --input-bg-color--valid:#004300;
-  --input-outline-color--valid:limegreen;
-  --bg-color-primary:#D3573C;
-  --bg-color-secondary:#901C1C;
-  --bg-color-tertiary:black;
-  --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
-  --buttons-border-radius: 5px;
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 10px 0;
+  }
+  .card:nth-child(odd) {
+    background-color: var(--odd-card-bg-color);
+  }
+}
+.card__image {
+  aspect-ratio: 1/1;
+  height: 200px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+.card__text-container > * {
+  text-align: center;
+}
+.card__name {
+  color: var(--text-color-primary);
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.card__location {
+  color: var(--text-color-secondary);
+  font-size: 18px;
+}
+.card__slogan {
+  color: var(--text-color-tertiary);
+  font-size: 14px;
+}
+.card__invoice {
+  color: var(--text-color-quaternary);
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=newstyle.css.map */

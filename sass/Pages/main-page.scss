@@ -1,0 +1,84 @@
+.main {
+
+    margin-bottom: 25px;
+
+    @include mobile-only {
+        margin-bottom: 50px;
+    }
+
+    @include tablet-only {
+        margin-bottom: 50px;
+    }
+
+    @include laptop-only {
+        margin-bottom: 50px;
+    }
+
+    &__cards-container {
+        width: 100%;
+
+        @include grid(2, 3, 35px);
+
+        @include mobile-only {
+            @include grid(6, 1, 35px);
+
+        }
+
+        @include tablet-only {
+            @include grid(3, 2, 35px)
+        }
+
+        @include laptop-only {
+            @include grid(3, 2, 35px)
+        }
+    }
+}
+
+.card {
+    @include center-flex-column;
+
+    @include mobile-only {
+        padding: 10px 0;
+
+        &:nth-child(odd) {
+            background-color: var(--odd-card-bg-color);
+        }
+    }
+
+    &__image {
+        aspect-ratio: 1/1;
+        height: 200px;
+        border-radius: 50%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+    }
+
+    &__text-container {
+        &>* {
+            text-align: center;
+        }
+    }
+
+    &__name {
+        color: var(--text-color-primary);
+        font-size: 36px;
+        @include center-flex-column();
+    }
+
+    &__location {
+        color: var(--text-color-secondary);
+        font-size: 18px;
+    }
+
+    &__slogan {
+        color: var(--text-color-tertiary);
+        font-size: 14px;
+    }
+
+    &__invoice {
+        color: var(--text-color-quaternary);
+        font-size: 12px;
+    }
+}
