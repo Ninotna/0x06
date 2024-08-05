@@ -18,7 +18,7 @@ async function getPhotographers() {
   
   async function displayData(photographers) {
     console.log(photographers);
-    const photographersSection = document.querySelector(".card");
+    const photographersSection = document.querySelector(".main__cards-container");
   
     photographers.forEach((photographer) => {
       const photographerModel = photographerTemplate(photographer);
