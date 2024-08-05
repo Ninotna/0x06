@@ -176,4 +176,313 @@ button ul {
   --buttons-border-radius: 5px;
 }
 
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+.button {
+  padding: 19px 23px;
+  font-size: 18px;
+  background-color: var(--buttons-bg-color);
+  color: var(--buttons-color);
+}
+.button:hover {
+  background-color: var(--buttons-bg-color--hover);
+  color: var(--buttons-color--hover);
+}
+.button:focus {
+  background-color: var(--buttons-bg-color--focus);
+  color: var(--buttons-color--focus);
+}
+.button--rounded {
+  border-radius: var(--buttons-border-radius);
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+.label {
+  color: var(--text-color-tertiary);
+  font-weight: 700;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 43px;
+  margin-bottom: 43px;
+  padding: 0 100px;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+.header__logo {
+  width: 200px;
+  height: 50px;
+}
+.header__title {
+  font-size: 36px;
+  text-align: center;
+  color: var(--text-color-secondary);
+  font-family: "DM Sans";
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
+:root {
+  --body-bg-color: white;
+  --buttons-color:white;
+  --buttons-color--hover:black;
+  --buttons-color--focus:black;
+  --buttons-bg-color:#901C1C;
+  --buttons-bg-color--hover:#DB8876;
+  --buttons-bg-color--active:#651414;
+  --buttons-bg-color--focus:#DB8876;
+  --text-color-primary:#D3573C;
+  --text-color-secondary:#901C1C;
+  --text-color-tertiary:black;
+  --text-color-quaternary:#757575;
+  --text-color-slogan:#525252;
+  --text-color-invoice:black;
+  --modal-backdrop-bg-color:#c4c4c4;
+  --modal-bg-color:#DB8876;
+  --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
+  --modal-lightbox-backdrop-bg-color:#E5E5E5;
+  --input-message-color: white;
+  --input-bg-color--invalid: #430000;
+  --input-outline-color--invalid: #bc0f0f;
+  --input-bg-color--valid:#004300;
+  --input-outline-color--valid:limegreen;
+  --bg-color-primary:#D3573C;
+  --bg-color-secondary:#901C1C;
+  --bg-color-tertiary:black;
+  --bg-color-quaternary:#757575;
+  --bg-color-likes-invoice: #DB8876;
+  --buttons-border-radius: 5px;
+}
+
 /*# sourceMappingURL=newstyle.css.map */
