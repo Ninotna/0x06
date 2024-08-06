@@ -26,7 +26,7 @@
   --bg-color-secondary:#901C1C;
   --bg-color-tertiary:black;
   --bg-color-quaternary:#757575;
-  --bg-color-likes-invoice: #DB8876;
+  --bg-color-daily-cost-likes: #DB8876;
   --buttons-border-radius: 5px;
 }
 
@@ -218,6 +218,57 @@ button ul {
 .card__daily-cost {
   color: var(--text-color-quaternary);
   font-size: 12px;
+}
+
+.main {
+  min-height: 100vh;
+}
+.main__daily-cost-likes {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  background-color: var(--bg-color-daily-cost-likes);
+  height: 45px;
+  width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main__profile-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.profile__name {
+  color: var(--text-color-primary);
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  text-align: center;
+}
+.profile__location {
+  color: var(--text-color-secondary);
+  font-size: 13px;
+}
+.profile__tagline {
+  color: var(--text-color-tertiary);
+  font-size: 10px;
+}
+.profile__image {
+  aspect-ratio: 1/1;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /*# sourceMappingURL=newstyle.css.map */

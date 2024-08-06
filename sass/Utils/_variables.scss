@@ -38,7 +38,7 @@ $bg-color-secondary: #901C1C;
 $bg-color-tertiary: black;
 $bg-color-quaternary: #757575;
 
-$bg-color-likes-invoice: #DB8876;
+$bg-color-daily-cost-likes: #DB8876;
 
 //CSS Variables
 :root {
@@ -82,7 +82,7 @@ $bg-color-likes-invoice: #DB8876;
     --bg-color-tertiary:#{$bg-color-tertiary};
     --bg-color-quaternary:#{$bg-color-quaternary};
 
-    --bg-color-likes-invoice: #{$bg-color-likes-invoice};
+    --bg-color-daily-cost-likes: #{$bg-color-daily-cost-likes};
 
     // Buttons border radius variables
     --buttons-border-radius: 5px;

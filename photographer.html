@@ -29,20 +29,59 @@
     <!-- JS -->
     <script defer src="js/pages/photographer.js"></script>
     <script defer src="js/utils/contactForm.js"></script>
-
   </head>
 
   <body>
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">
-          Contactez-moi
-        </button>
+
+    <main class="main" role="main" aria-label="Contenu de la page principale">
+      <div class="main__daily-cost-likes">
+        <div class="main__likes">
+          <p>69 420 <i class="fa-solid fa-heart"></i></p>
+        </div>
+        <div class="main__daily-cost">
+          <p>[FACTURE EN €]</p>
+        </div>
       </div>
+
+      <dialog class="main__contact-modal"></dialog>
+
+      <section class="main__profile-banner">
+        <div class="profile__card">
+          <h1 class="profile__name">[NOM] [PRÉNOM]</h1>
+          <p class="profile__location">[LOCATION]</p>
+          <p class="profile__tagline">[TAGLINE]</p>
+        </div>
+        <div class="profile__contact">
+          <button type="button" class="button button--rounded">
+            Contactez-moi
+          </button>
+        </div>
+        <div class="profile__image-container">
+          <img
+            src="http://placehold.co/200"
+            alt=""
+            class="profile__image"
+          />
+        </div>
+      </section>
+
+      <section class="main__image-container">
+        <div class="images">
+          <div class="images__sorter">
+            <select name="orderby">
+              <option value="veuillez selectionner une option">---</option>
+              <option value="popularité">Popularité</option>
+              <option value="date">Date</option>
+              <option value="titre">Titre</option>
+            </select>
+          </div>
+        </div>
+      </section>
     </main>
+
     <div id="contact_modal">
       <div class="modal">
         <header>
