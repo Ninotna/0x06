@@ -39,20 +39,22 @@
     <main class="main" role="main" aria-label="Contenu de la page principale">
       <div class="main__daily-cost-likes">
         <div class="main__likes">
-          <p>69 420 <i class="fa-solid fa-heart"></i></p>
+          <p aria-label="likes">69 420 <i class="fa-solid fa-heart"></i></p>
         </div>
         <div class="main__daily-cost">
-          <p>[FACTURE EN €]</p>
+          <p aria-label="taux journalier du photographe">[FACTURE EN €]</p>
         </div>
       </div>
 
       <dialog class="main__contact-modal"></dialog>
 
       <section class="main__profile-banner">
-        <div class="profile__card">
-          <h1 class="profile__name">[NOM] [PRÉNOM]</h1>
-          <p class="profile__location">[LOCATION]</p>
-          <p class="profile__tagline">[TAGLINE]</p>
+        <div class="profile__card-container">
+          <div class="profile__card">
+            <h1 class="profile__name">[NOM] [PRÉNOM]</h1>
+            <p class="profile__location">[LOCATION]</p>
+            <p class="profile__tagline">[TAGLINE]</p>
+          </div>
         </div>
         <div class="profile__contact">
           <button type="button" class="button button--rounded">
@@ -60,24 +62,101 @@
           </button>
         </div>
         <div class="profile__image-container">
-          <img
-            src="http://placehold.co/200"
-            alt=""
-            class="profile__image"
-          />
+          <img src="http://placehold.co/200" alt="" class="profile__image" />
         </div>
       </section>
 
       <section class="main__image-container">
+        <div class="images__sorter">
+          <label for="select" class="label">Trier par:</label>
+          <select name="orderby" class="select" id="select">
+            <option value="veuillez selectionner une option" class="option">
+              ---
+            </option>
+            <option value="popularité" class="option">Popularité</option>
+            <option value="date" class="option">Date</option>
+            <option value="titre" class="option">Titre</option>
+          </select>
+        </div>
         <div class="images">
-          <div class="images__sorter">
-            <select name="orderby">
-              <option value="veuillez selectionner une option">---</option>
-              <option value="popularité">Popularité</option>
-              <option value="date">Date</option>
-              <option value="titre">Titre</option>
-            </select>
+          <template>
+            <div class="images__post">
+              <img
+                class="images__image"
+                src="http://placehold.co/350x300"
+                alt=""
+              />
+              <div class="images__post-text">
+                <p class="images__post-description">Post description</p>
+                <button class="images__post-like-button">
+                  1 337 <i class="fa-solid fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </template>
+        <!--          -->
+        <div class="image__post-container">
+          <div class="images__post">
+            <a href="./photographer.html" title="[TITRE DU POST]">
+
+              <img class="images__image"
+              src="http://placehold.co/350x300"
+                alt="">
+            </a>
+            <div class="images__post-text">
+              <p class="images__post-description">Post description</p>
+              <button class="images__post-like-button">1 337 <i class="fa-solid fa-heart"></i></button>
+            </div>
           </div>
+        </div>
+        <!--          -->
+        <div class="image__post-container">
+          <div class="images__post">
+            <a href="./photographer.html" title="[TITRE DU POST]">
+
+              <img class="images__image"
+              src="http://placehold.co/350x300"
+                alt="">
+            </a>
+            <div class="images__post-text">
+              <p class="images__post-description">Post description</p>
+              <button class="images__post-like-button">1 337 <i class="fa-solid fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+                <!--          -->
+                <div class="image__post-container">
+                  <div class="images__post">
+                    <a href="./photographer.html" title="[TITRE DU POST]">
+        
+                      <img class="images__image"
+                      src="http://placehold.co/350x300"
+                        alt="">
+                    </a>
+                    <div class="images__post-text">
+                      <p class="images__post-description">Post description</p>
+                      <button class="images__post-like-button">1 337 <i class="fa-solid fa-heart"></i></button>
+                    </div>
+                  </div>
+                </div>
+                        <!--          -->
+        <div class="image__post-container">
+          <div class="images__post">
+            <a href="./photographer.html" title="[TITRE DU POST]">
+
+              <img class="images__image"
+              src="http://placehold.co/350x300"
+                alt="">
+            </a>
+            <div class="images__post-text">
+              <p class="images__post-description">Post description</p>
+              <button class="images__post-like-button">1 337 <i class="fa-solid fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+
+
+
         </div>
       </section>
     </main>

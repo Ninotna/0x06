@@ -209,15 +209,15 @@ button ul {
 }
 .card__location {
   color: var(--text-color-secondary);
-  font-size: 18px;
+  font-size: 13px;
 }
 .card__tagline {
   color: var(--text-color-tertiary);
-  font-size: 14px;
+  font-size: 10px;
 }
 .card__daily-cost {
   color: var(--text-color-quaternary);
-  font-size: 12px;
+  font-size: 9px;
 }
 
 .main {
