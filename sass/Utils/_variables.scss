@@ -17,8 +17,8 @@ $text-color-tertiary: black;
 $text-color-quaternary: #757575;
 
 //For the photographers page
-$text-color-slogan: #525252;
-$text-color-invoice: black;
+$text-color-tagline: #525252;
+$text-color-daily-cost: black;
 
 $modal-backdrop-bg-color: #c4c4c4;
 $modal-bg-color: #DB8876;
@@ -61,8 +61,8 @@ $bg-color-daily-cost-likes: #DB8876;
     --text-color-quaternary:#{$text-color-quaternary};
 
     //For the photographers page
-    --text-color-slogan:#{$text-color-slogan};
-    --text-color-invoice:#{$text-color-invoice};
+    --text-color-tagline:#{$text-color-tagline};
+    --text-color-daily-cost:#{$text-color-daily-cost};
     --modal-backdrop-bg-color:#{$modal-backdrop-bg-color};
     --modal-bg-color:#{$modal-bg-color};
     --modal-shadow-color:#{$modal-shadow-color};

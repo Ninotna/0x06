@@ -11,8 +11,8 @@
   --text-color-secondary:#901C1C;
   --text-color-tertiary:black;
   --text-color-quaternary:#757575;
-  --text-color-slogan:#525252;
-  --text-color-invoice:black;
+  --text-color-tagline:#525252;
+  --text-color-daily-cost:black;
   --modal-backdrop-bg-color:#c4c4c4;
   --modal-bg-color:#DB8876;
   --modal-shadow-color:rgba(10, 10, 10, 0.3019607843);
@@ -225,27 +225,85 @@ button ul {
 }
 .main__daily-cost-likes {
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: 0px;
+  right: 35px;
   background-color: var(--bg-color-daily-cost-likes);
+  color: var(--text-color-daily-cost);
   height: 45px;
   width: 375px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
+  font-weight: 600;
+  border-radius: var(--buttons-border-radius) var(--buttons-border-radius) 0 0;
 }
 .main__profile-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
 }
-
-.profile__card {
+@media screen and (max-width: 768px) {
+  .main__profile-banner {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .main__profile-banner {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+}
+.main .profile__card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  text-align: center;
+}
+.main .profile__card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin-left: 15%;
 }
-.profile__name {
+@media screen and (max-width: 768px) {
+  .main .profile__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    text-align: center;
+    margin-left: 0%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .main .profile__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    text-align: center;
+    margin-left: 0%;
+  }
+}
+.main .profile__contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.main .profile__name {
   color: var(--text-color-primary);
   font-size: 36px;
   display: flex;
@@ -255,20 +313,95 @@ button ul {
   gap: 0px;
   text-align: center;
 }
-.profile__location {
+.main .profile__location {
   color: var(--text-color-secondary);
   font-size: 13px;
 }
-.profile__tagline {
+.main .profile__tagline {
   color: var(--text-color-tertiary);
   font-size: 10px;
 }
-.profile__image {
+.main .profile__image {
   aspect-ratio: 1/1;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
+}
+
+.images {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 35px;
+}
+@media screen and (max-width: 768px) {
+  .images {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .images {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+@media screen and (min-width: 993px) and (max-width: 1150px) {
+  .images {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+.images__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  text-align: center;
+}
+.images__post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  text-align: center;
+  overflow: hidden;
+  width: 350px;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .images__post {
+    max-width: 350px;
+  }
+}
+.images__post-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 96%;
+}
+.images__post-description {
+  color: var(--bg-color-secondary);
+}
+.images__post-like-button {
+  color: var(--bg-color-secondary);
+  margin-right: 1px;
+}
+.images__image {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--buttons-border-radius);
 }
 
 /*# sourceMappingURL=newstyle.css.map */
