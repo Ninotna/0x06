@@ -45,6 +45,7 @@ $breakpoints : ( //Breakpoints for the media queries
     justify-content: center;
     align-items: center;
     gap: $gap;
+    text-align:center; //ajout pour aligner les cards en colonne..
 }
 
 @mixin grid($rows: auto-fill, $columns: auto-fill, $gap: 0px) {

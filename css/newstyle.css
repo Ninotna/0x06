@@ -55,6 +55,8 @@ a {
 }
 
 button {
+  padding: 19px 23px;
+  font-size: 18px;
   border: none;
   background-color: transparent;
   font-family: "DM Sans", "Courier New", Courier, monospace;
@@ -81,8 +83,6 @@ button ul {
 }
 
 .button {
-  padding: 19px 23px;
-  font-size: 18px;
   background-color: var(--buttons-bg-color);
   color: var(--buttons-color);
 }
@@ -120,6 +120,7 @@ button ul {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    text-align: center;
   }
 }
 .header__logo {
@@ -134,22 +135,7 @@ button ul {
 }
 
 .main {
-  margin-bottom: 25px;
-}
-@media screen and (max-width: 768px) {
-  .main {
-    margin-bottom: 50px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 992px) {
-  .main {
-    margin-bottom: 50px;
-  }
-}
-@media screen and (min-width: 993px) and (max-width: 1150px) {
-  .main {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 50px;
 }
 .main__cards-container {
   width: 100%;
@@ -189,6 +175,7 @@ button ul {
   justify-content: center;
   align-items: center;
   gap: 0px;
+  text-align: center;
 }
 @media screen and (max-width: 768px) {
   .card {
@@ -218,16 +205,17 @@ button ul {
   justify-content: center;
   align-items: center;
   gap: 0px;
+  text-align: center;
 }
 .card__location {
   color: var(--text-color-secondary);
   font-size: 18px;
 }
-.card__slogan {
+.card__tagline {
   color: var(--text-color-tertiary);
   font-size: 14px;
 }
-.card__invoice {
+.card__daily-cost {
   color: var(--text-color-quaternary);
   font-size: 12px;
 }

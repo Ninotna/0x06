@@ -1,18 +1,6 @@
 .main {
 
-    margin-bottom: 25px;
-
-    @include mobile-only {
-        margin-bottom: 50px;
-    }
-
-    @include tablet-only {
-        margin-bottom: 50px;
-    }
-
-    @include laptop-only {
-        margin-bottom: 50px;
-    }
+    margin-bottom: 50px;
 
     &__cards-container {
         width: 100%;
@@ -21,7 +9,6 @@
 
         @include mobile-only {
             @include grid(6, 1, 35px);
-
         }
 
         @include tablet-only {
@@ -31,6 +18,9 @@
         @include laptop-only {
             @include grid(3, 2, 35px)
         }
+
+
+
     }
 }
 
@@ -72,12 +62,12 @@
         font-size: 18px;
     }
 
-    &__slogan {
+    &__tagline {
         color: var(--text-color-tertiary);
         font-size: 14px;
     }
 
-    &__invoice {
+    &__daily-cost {
         color: var(--text-color-quaternary);
         font-size: 12px;
     }
