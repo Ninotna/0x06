@@ -33,16 +33,44 @@
 
   <body>
     <header class="header" role="banner">
-      <a href="../index.html" class="header__logo-wrapper" title="Retour vers la page d'acceuil"
-      alt="Retour vers la page d'accueil">
-      <img src="assets/images/logo.png" class="header__logo" alt="Logo pour le site de FishEye" />
-       </a>   
+      <a
+        href="../index.html"
+        class="header__logo-wrapper"
+        title="Retour vers la page d'acceuil"
+        alt="Retour vers la page d'accueil"
+      >
+        <img
+          src="assets/images/logo.png"
+          class="header__logo"
+          alt="Logo pour le site de FishEye"
+        />
+      </a>
       <h1 class="header__title">Nos photographes</h1>
-
     </header>
     <main class="main" role="main" aria-label="Contenu de la page principale">
       <div class="main__cards-container">
-        <!-- <section class="card" role="region"></section> -->
+        <template>
+          <section class="card" role="region">
+            <a
+              class="card__photograph-profile"
+              href="./html/photographer.html"
+              target="blank"
+            >
+              <h2 class="card__name">
+                <img
+                  src="./assets/images/Photographs Profile pictures/"
+                  alt=""
+                  class="card__image"
+                />[NOM] [PRÉNOM]
+              </h2>
+            </a>
+            <div class="card__text-container">
+              <p class="card__location">[LOCALISATION]</p>
+              <p class="card__slogan">[SLOGAN]</p>
+              <p class="card__invoice">[FACTURE EN €]</p>
+            </div>
+          </section>
+        </template>
       </div>
     </main>
   </body>
