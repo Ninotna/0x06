@@ -46,8 +46,8 @@
         </div>
       </div>
 
-      <!-- Modale de contact-->      
-       <dialog class="contact__modal">
+      <!-- Modale de contact-->
+      <dialog class="contact__modal">
         <div class="contact__modal-content">
           <div class="contact__title-button">
             <h1 class="contact__title">
@@ -100,12 +100,38 @@
           </form>
         </div>
       </dialog>
+      <!-- FIN MODALE- CONTACT -->
 
-      <dialog class="main__lightbox-modal" open>
-        <h2>Modal WINDOW</h2>
+      <!-- Modale pour le carroussel (lightbox) -->
+      <dialog class="lightbox__modal">
+        <div class="lightbox__content">
+          <button type="button" class="lightbox__button-close-dialog">
+            <i class="fa-solid fa-xmark lightbox__button-close-dialog-icon"></i>
+          </button>
+  
+          <button type="button" class="lightbox__button-previous">
+            <i class="fa-solid fa-chevron-left lightbox__button-previous-icon"></i>
+          </button>
+  
+          <button type="button" class="lightbox__button-next">
+            <i class="fa-solid fa-chevron-right lightbox__button-next-icon"></i>
+          </button>
+  
+  
+          <div class="lightbox__image-post-description">
+            <div class="lightbox__image-container">
+              <img
+                src="http://placehold.co/1050x900"
+                alt="" class="lightbox__image">
+            </div>
+            <p class="lightbox__post-description">Description</p>
+          </div>
+  
+        </div>
       </dialog>
-      <!-- FIN DU MODAL-->
+      <!-- FIN DE LA MODALE pour LA LIGHTBOX-->
 
+      <!-- Picture Posts made by the photograph -->
       <section class="main__profile-banner">
         <div class="profile__card-container">
           <div class="profile__card">
@@ -137,24 +163,25 @@
           </select>
         </div>
         <div class="images">
-
-
+          <!-- Template for JS -->
           <template>
-
-          <div class="images__post-container">
-            <div class="images__post">
-              <a href="./photographer.html" title="[TITRE DU POST]">
-
-                <img class="images__image"
-                  src="http://placehold.co/350x300"
-                  alt="">
-              </a>
-              <div class="images__post-text">
-                <p class="images__post-description">Post description</p>
-                <button class="images__post-like-button">1 337 <i class="fa-solid fa-heart"></i></button>
+            <div class="images__post-container">
+              <div class="images__post">
+                <a href="./photographer.html" title="[TITRE DU POST]">
+                  <img
+                    class="images__image"
+                    src="http://placehold.co/350x300"
+                    alt=""
+                  />
+                </a>
+                <div class="images__post-text">
+                  <p class="images__post-description">Post description</p>
+                  <button class="images__post-like-button">
+                    1 337 <i class="fa-solid fa-heart"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
           </template>
           <!--          -->
           <div class="images__post-container">
@@ -268,6 +295,5 @@
         </div>
       </section>
     </main>
-
   </body>
 </html>
