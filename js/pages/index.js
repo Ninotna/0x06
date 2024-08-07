@@ -97,3 +97,7 @@ async function init() {
 
 // Appelle la fonction d'initialisation pour démarrer le processus
 init();
+
+
+// Violera la règle de guillemets simples si elle est configurée
+const message = "Hello, world!";

@@ -267,12 +267,12 @@ button ul {
     gap: 10px;
   }
 }
-.main__photographs-container {
+.main__photographer-container {
   display: flex;
   flex-direction: column;
 }
 @media screen and (min-width: 1150px) {
-  .main__photographs-container {
+  .main__photographer-container {
     margin: 0 0 0 4.5%;
   }
 }
@@ -283,11 +283,11 @@ button ul {
   left: 50%;
   translate: -50% -50%;
   z-index: 3;
-  background-color: var(--dialog-bg-color);
+  background-color: var(--modal-bg-color);
   color: var(--text-color-invoice);
   padding: 15px;
   border-radius: var(--buttons-border-radius);
-  box-shadow: 0px 2px 8px var(--dialog-shadow-color);
+  box-shadow: 0px 2px 8px var(--modal-shadow-color);
   width: 40%;
   height: 90vh;
 }
@@ -311,10 +311,10 @@ button ul {
   height: 100%;
 }
 .contact__modal::-webkit-backdrop {
-  background-color: var(--dialog-backdrop-bg-color);
+  background-color: var(--modal-backdrop-bg-color);
 }
 .contact__modal::backdrop {
-  background-color: var(--dialog-backdrop-bg-color);
+  background-color: var(--modal-backdrop-bg-color);
 }
 .contact__title-button {
   display: flex;
@@ -330,12 +330,12 @@ button ul {
     font-size: 34px;
   }
 }
-.contact__button-close-dialog {
+.contact__button-close-modal {
   color: var(--buttons-color);
   aspect-ratio: 1/1;
   height: 35px;
 }
-.contact__button-close-dialog-icon {
+.contact__button-close-modal-icon {
   font-size: 35px;
   color: var(--text-color-invoice);
 }
@@ -399,11 +399,125 @@ button ul {
   background-color: var(--bg-color-quaternary);
 }
 
+.lightbox__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 80%;
+  height: 95vh;
+  z-index: 3;
+  border-radius: var(--buttons-border-radius);
+  box-shadow: 0px 2px 8px var(--modal-shadow-color);
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .lightbox__modal {
+    height: 100vh;
+    width: 100%;
+  }
+}
+.lightbox__content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  text-align: center;
+}
+.lightbox__button-close-modal {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  aspect-ratio: 1/1;
+  height: 35px;
+  color: var(--text-color-secondary);
+}
+.lightbox__button-close-modal-icon {
+  font-size: 35px;
+}
+.lightbox__button-previous {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  aspect-ratio: 1/1;
+  height: 35px;
+  color: var(--text-color-secondary);
+}
+.lightbox__button-previous-icon {
+  font-size: 35px;
+}
+.lightbox__button-next {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  aspect-ratio: 1/1;
+  height: 35px;
+  color: var(--text-color-secondary);
+}
+.lightbox__button-next-icon {
+  font-size: 35px;
+}
+.lightbox__image-post-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 90%;
+  width: 90%;
+}
+.lightbox__image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 100%;
+}
+.lightbox__image {
+  border-radius: var(--buttons-border-radius);
+  width: 850px;
+  height: 650px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+@media screen and (max-width: 768px) {
+  .lightbox__image {
+    width: 275px;
+    height: 175px;
+  }
+}
+.lightbox__video {
+  border-radius: var(--buttons-border-radius);
+  width: 850px;
+  height: 650px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+@media screen and (max-width: 768px) {
+  .lightbox__video {
+    width: 275px;
+    height: 175px;
+  }
+}
+.lightbox__post-description {
+  position: absolute;
+  bottom: 22px;
+  left: 81px;
+  color: var(--text-color-secondary);
+}
 .lightbox::-webkit-backdrop {
-  background-color: var(--dialog-backdrop-bg-color);
+  background-color: var(--modal-lightbox-backdrop-bg-color);
 }
 .lightbox::backdrop {
-  background-color: var(--dialog-backdrop-bg-color);
+  background-color: var(--modal-lightbox-backdrop-bg-color);
 }
 
 .profile__card-container {
