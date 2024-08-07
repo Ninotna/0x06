@@ -49,25 +49,26 @@
     </header>
     <main class="main" role="main" aria-label="Contenu de la page principale">
       <div class="main__cards-container">
-        <template>
+        <template id="photographer-template">
           <section class="card" role="region">
             <a
               class="card__photograph-profile"
-              href="./html/photographer.html"
-              target="blank"
+              href="#"
+              target="_blank"
+              aria-label="Voir le profil du photographe"
             >
-              <h2 class="card__name">
-                <img
-                  src="./assets/images/Photographs Profile pictures/"
-                  alt=""
-                  class="card__image"
-                />[NOM] [PRÉNOM]
-              </h2>
+              <img
+                src=""
+                alt=""
+                class="card__image"
+                aria-label="Portrait du photographe"
+              />
+              <h2 class="card__name"></h2>
             </a>
             <div class="card__text-container">
-              <p class="card__location">[LOCALISATION]</p>
-              <p class="card__slogan">[SLOGAN]</p>
-              <p class="card__invoice">[FACTURE EN €]</p>
+              <p class="card__location"></p>
+              <p class="card__tagline"></p>
+              <p class="card__daily-cost"></p>
             </div>
           </section>
         </template>
