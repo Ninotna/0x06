@@ -1,6 +1,7 @@
 import PhotographersApi from '../apis/photographersApi.js';
 import PhotographerProfileTemplate from '../templates/photographerProfile.js';
 import getParameter from '../utils/getParameters.js';
+import {ContactModal, ContactFormBuilder} from '../utils/ContactModal.js';
 
 class PhotographerApp
 {
@@ -82,9 +83,8 @@ class PhotographerApp
 	 */
 	static changeUIOfProfile(dataObject, container)
 	{
-		container.innerHTML = new PhotographerProfileTemplate(
-			dataObject
-		).createProfileCard();
+		const profileTemplate = new PhotographerProfileTemplate(dataObject);
+		container.appendChild(profileTemplate.createProfileCard());
 	}
 
 	/**
@@ -94,9 +94,11 @@ class PhotographerApp
 	 */
 	static changeUIOfPosts(dataArray, container)
 	{
-		container.innerHTML = new PhotographerProfileTemplate(
-			dataArray
-		).createPostsCard();
+		dataArray.forEach(postData =>
+		{
+			const postTemplate = new PhotographerProfileTemplate(postData);
+			container.appendChild(postTemplate.createPostsCard());
+		});
 	}
 }
 
@@ -114,6 +116,12 @@ let photographerMediaArray = [];
 // Gestion des données une fois récupérées
 launchPhotographerApp.then((data) =>
 {
+	if (data.error)
+	{
+		console.error("Erreur lors de la récupération des données :", data.message);
+		return;
+	}
+
 	const { photographers, media } = data;
 
 	photographerObject = PhotographerApp.getUserInfos(
