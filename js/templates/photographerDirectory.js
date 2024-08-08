@@ -79,3 +79,6 @@ function photographerTemplate(data) {
     // Retourne un objet contenant le nom, l'image, et la méthode de création du DOM
     return { name, picture, getUserCardDOM };
 }
+
+
+export default photographerTemplate;

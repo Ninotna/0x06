@@ -1,3 +1,5 @@
+import photographerTemplate from "../templates/photographerDirectory.js";
+
 /**
  * Cette fonction asynchrone récupère les données des photographes
  * à partir d'un fichier JSON situé à l'adresse "./data/photographers.json".
@@ -101,3 +103,4 @@ init();
 
 // Violera la règle de guillemets simples si elle est configurée
 const message = "Hello, world!";
+

@@ -3,74 +3,28 @@ class PhotographerProfileTemplate {
       this.card = card;
     }
   
-    /**
-     * Crée la carte de profil pour le photographe
-     * @returns {HTMLElement} - La section du profil du photographe
-     */
-    createProfileCard() {
-      const { name, city, country, tagline, portrait } = this.card;
-  
-      // Créer la section principale pour le profil
-      const section = document.createElement('section');
-      section.className = 'main__profile-container';
-  
-      // Créer le conteneur de la carte de profil
-      const cardContainer = document.createElement('div');
-      cardContainer.className = 'profile__card-container';
-  
-      const card = document.createElement('div');
-      card.className = 'profile__card';
-  
-      // Créer et ajouter le nom du photographe
-      const nameElement = document.createElement('h1');
-      nameElement.className = 'profile__name';
-      nameElement.textContent = name;
-  
-      // Créer et ajouter la localisation
-      const locationElement = document.createElement('p');
-      locationElement.className = 'profile__location';
-      locationElement.textContent = `${city}, ${country}`;
-  
-      // Créer et ajouter le slogan
-      const taglineElement = document.createElement('p');
-      taglineElement.className = 'profile__slogan';
-      taglineElement.textContent = tagline;
-  
-      // Assembler les éléments de la carte
-      card.appendChild(nameElement);
-      card.appendChild(locationElement);
-      card.appendChild(taglineElement);
-      cardContainer.appendChild(card);
-  
-      // Créer le bouton de contact
-      const contactContainer = document.createElement('div');
-      contactContainer.className = 'profile__contact';
-  
-      const contactButton = document.createElement('button');
-      contactButton.type = 'button';
-      contactButton.className = 'button button--rounded';
-      contactButton.textContent = 'Contactez-moi';
-  
-      contactContainer.appendChild(contactButton);
-  
-      // Créer le conteneur de l'image de profil
-      const imageContainer = document.createElement('div');
-      imageContainer.className = 'profile__image-container';
-  
-      const image = document.createElement('img');
-      image.src = `./assets/images/Photographs Profile pictures/${portrait}`;
-      image.alt = `Photo de profil du compte de: ${name}`;
-      image.className = 'profile__image';
-  
-      imageContainer.appendChild(image);
-  
-      // Assembler la section complète
-      section.appendChild(cardContainer);
-      section.appendChild(contactContainer);
-      section.appendChild(imageContainer);
-  
-      return section;
-    }
+    	/**
+	 * Crée la carte de profil pour le photographe
+	 * @returns {HTMLElement} - La section du profil du photographe
+	 */
+	createProfileCard()
+	{
+		const { name, city, country, tagline, portrait } = this.card;
+
+		// Récupérer le template
+		const template = document.getElementById('profile-template');
+		const clone = document.importNode(template.content, true);
+
+		// Mettre à jour le contenu du clone
+		clone.querySelector('.profile__name').textContent = name;
+		clone.querySelector('.profile__location').textContent = `${city}, ${country}`;
+		clone.querySelector('.profile__tagline').textContent = tagline;
+		clone.querySelector('.profile__image').src = `./assets/Photographers/${portrait}`;
+		clone.querySelector('.profile__image').alt = `Photo de profil du compte de: ${name}`;
+
+		return clone;
+	}
+
   
     /**
      * Crée la carte pour les publications du photographe
@@ -137,4 +91,4 @@ class PhotographerProfileTemplate {
     }
   }
   
-  
+  export default PhotographerProfileTemplate;

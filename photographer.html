@@ -27,8 +27,11 @@
       rel="stylesheet"
     />
     <!-- JS -->
-    <script defer src="js/pages/photographer.js"></script>
-    <script defer src="js/utils/contactForm.js"></script>
+
+    <!-- <script type="module" defer src="js/apis/photographersApi.js"></script>
+    <script type="module" defer src="js/templates/photographerProfile.js"></script> -->
+    <script type="module" defer src="js/pages/photographer.js"></script>
+    <!-- <script type="module" defer src="js/utils/contactForm.js"></script> -->
   </head>
 
   <body>
@@ -36,7 +39,7 @@
       <img src="assets/images/logo.png" class="logo" />
     </header>
 
-    <main class="main" role="main" aria-label="Contenu de la page principale">
+    <main class="main" role="main" aria-label="Contenu du profil photographe">
       <div class="main__daily-cost-likes">
         <div class="main__likes">
           <p aria-label="likes">69 420 <i class="fa-solid fa-heart"></i></p>
@@ -132,25 +135,28 @@
       <!-- FIN DE LA MODALE pour LA LIGHTBOX-->
 
       <!-- Bannière du profil photographe-->
-       <template>
-      <section class="main__profile-banner">
-        <div class="profile__card-container">
-          <div class="profile__card">
-            <h1 class="profile__name">[NOM] [PRÉNOM]</h1>
-            <p class="profile__location">[LOCATION]</p>
-            <p class="profile__tagline">[TAGLINE]</p>
+      <section class="main__profile-wrapper"></section>
+
+      <template id="profile-template">
+        <section class="main__profile-banner">
+          <div class="profile__card-container">
+            <div class="profile__card">
+              <h1 class="profile__name">[NOM] [PRÉNOM]</h1>
+              <p class="profile__location">[LOCATION]</p>
+              <p class="profile__tagline">[TAGLINE]</p>
+            </div>
           </div>
-        </div>
-        <div class="profile__contact">
-          <button type="button" class="button button--rounded">
-            Contactez-moi
-          </button>
-        </div>
-        <div class="profile__image-container">
-          <img src="http://placehold.co/200" alt="" class="profile__image" />
-        </div>
-      </section>
+          <div class="profile__contact">
+            <button type="button" class="button button--rounded">
+              Contactez-moi
+            </button>
+          </div>
+          <div class="profile__image-container">
+            <img src="http://placehold.co/200" alt="" class="profile__image" />
+          </div>
+        </section>
       </template>
+
       <!-- Posts made by the photograph -->
       <section class="main__photographer-container">
         <div class="images__sorter">
