@@ -229,12 +229,6 @@ class ContactModal
 }
 
 // Initialisation de la modale de contact
-const contactModal = new ContactModal(".contact__modal");
+// const contactModal = new ContactModal(".contact__modal");
 
-// Exemple d'utilisation pour ouvrir la modale
-document.querySelector(".open-contact-modal-button").addEventListener("click", () =>
-{
-	contactModal.displayContactModal();
-});
-
-export {ContactModal, ContactFormBuilder};
+export default ContactFormBuilder;

@@ -1,7 +1,7 @@
 import PhotographersApi from '../apis/photographersApi.js';
 import PhotographerProfileTemplate from '../templates/photographerProfile.js';
 import getParameter from '../utils/getParameters.js';
-import {ContactModal, ContactFormBuilder} from '../utils/ContactModal.js';
+import ContactFormBuilder from '../utils/ContactModal.js';
 
 class PhotographerApp
 {
@@ -87,25 +87,29 @@ class PhotographerApp
 		container.appendChild(profileTemplate.createProfileCard());
 	}
 
-	/**
+/**
 	 * Méthode statique qui remplit le conteneur pour les publications.
 	 * @arg dataArray: Tableau contenant les données des publications.
+	 * @arg photographerName: Nom du photographe pour récupérer les images.
 	 * @arg container: Conteneur HTML pour afficher les publications.
 	 */
-	static changeUIOfPosts(dataArray, container)
+static changeUIOfPosts(dataArray, photographerName, container)
+{
+	dataArray.forEach(postData =>
 	{
-		dataArray.forEach(postData =>
-		{
-			const postTemplate = new PhotographerProfileTemplate(postData);
-			container.appendChild(postTemplate.createPostsCard());
-		});
-	}
+		// Ajoutez le nom du photographe à l'objet postData
+		postData.name = photographerName;
+
+		const postTemplate = new PhotographerProfileTemplate(postData);
+		container.appendChild(postTemplate.createPostsCard());
+	});
+}
 }
 
 // Initialisation de l'application des photographes
 const launchPhotographerApp = new PhotographerApp().main();
 
-const profileContainer = document.querySelector(".main__profile-wrapper");
+const profileContainer = document.querySelector(".main__profile-banner");
 const postsContainer = document.querySelector(".images");
 
 let urlPhotographerId = Number(getParameter("id"));
@@ -116,26 +120,26 @@ let photographerMediaArray = [];
 // Gestion des données une fois récupérées
 launchPhotographerApp.then((data) =>
 {
-	if (data.error)
-	{
-		console.error("Erreur lors de la récupération des données :", data.message);
-		return;
-	}
+if (data.error)
+{
+	console.error("Erreur lors de la récupération des données :", data.message);
+	return;
+}
 
-	const { photographers, media } = data;
+const { photographers, media } = data;
 
-	photographerObject = PhotographerApp.getUserInfos(
-		photographers,
-		urlPhotographerId
-	);
+photographerObject = PhotographerApp.getUserInfos(
+	photographers,
+	urlPhotographerId
+);
 
-	photographerMediaArray = PhotographerApp.getPostsOfUser(
-		media,
-		urlPhotographerId
-	);
+photographerMediaArray = PhotographerApp.getPostsOfUser(
+	media,
+	urlPhotographerId
+);
 
-	PhotographerApp.changeUIOfProfile(photographerObject, profileContainer);
-	PhotographerApp.changeUIOfPosts(photographerMediaArray, postsContainer);
+PhotographerApp.changeUIOfProfile(photographerObject, profileContainer);
+PhotographerApp.changeUIOfPosts(photographerMediaArray, photographerObject.name, postsContainer);
 });
 
 console.log("Id du photographe =", urlPhotographerId);
