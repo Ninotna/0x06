@@ -14,8 +14,8 @@
     <title>Fisheye - photographe</title>
 
     <!-- CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" /> -->
     <link href="css/newstyle.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
@@ -30,13 +30,24 @@
 
     <!-- <script type="module" defer src="js/apis/photographersApi.js"></script>
     <script type="module" defer src="js/templates/photographerProfile.js"></script> -->
-    <script type="module" defer src="js/pages/photographer.js"></script>
+    <script type="module" src="js/pages/photographer.js"></script>
     <!-- <script type="module" defer src="js/utils/contactForm.js"></script> -->
   </head>
 
   <body>
-    <header>
-      <img src="assets/media/logo.png" class="logo" />
+    <header class="header" role="banner">
+      <a
+        href="../index.html"
+        class="header__logo-wrapper"
+        title="Retour vers la page d'acceuil"
+        alt="Retour vers la page d'accueil"
+      >
+        <img
+          src="assets/media/logo.png"
+          class="header__logo"
+          alt="Logo pour le site de FishEye"
+        />
+      </a>
     </header>
 
     <main class="main" role="main" aria-label="Contenu du profil photographe">
@@ -147,7 +158,7 @@
             </div>
           </div>
           <div class="profile__contact">
-            <button type="button" class="button button--rounded">
+            <button type="button" class="contact-button button button--rounded">
               Contactez-moi
             </button>
           </div>
@@ -171,27 +182,42 @@
           </select>
         </div>
         <div class="images">
-          <!-- Template for a pic post -->
-          <template>
-            <div class="images__post-container">
-              <div class="images__post">
-                <a href="./photographer.html" title="[TITRE DU POST]">
-                  <video src="http://placehold.co/300x300" poster="" class="images__video"></video>
-                  <img
-                    class="images__image"
-                    src="http://placehold.co/350x300"
-                    alt="[DESCRIPTION ALT]"
-                  />
-                </a>
-                <div class="images__post-text">
-                  <p class="images__post-description">Post description</p>
-                  <button class="images__post-like-button">
-                    1 337 <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </template>
+          <!-- Template for a unique post with an image-->
+<template id="image-post-template">
+  <div class="images__post-container" data-post-id="" data-photographers-id=""
+    data-publishing-date="" data-likes="" data-user-liked="false" data-title="">
+    <div class="images__post">
+      <a href="#" title="" aria-label="" role="link" tabindex="0">
+        <img class="images__image" src="" alt="" />
+      </a>
+      <div class="images__post-text">
+        <p class="images__post-description" tabindex="0"></p>
+        <button class="images__post-like-button" title="" aria-pressed="false"
+          aria-label="" tabindex="0"> <i class="fa-solid fa-heart"></i></button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- Template for a unique post with a video-->
+<template id="video-post-template">
+  <div class="images__post-container" data-post-id="" data-photographers-id=""
+    data-publishing-date="" data-likes="" data-user-liked="false" data-title="">
+    <div class="images__post">
+      <a href="#" title="" aria-label="" role="link" tabindex="0">
+        <video src="" class="images__video">
+          <track kind="captions" srclang="en" label="English captions"></track>
+        </video>
+      </a>
+      <div class="images__post-text">
+        <p class="images__post-description" tabindex="0"></p>
+        <button class="images__post-like-button" title="" aria-pressed="false"
+          aria-label="" tabindex="0"> <i class="fa-solid fa-heart"></i></button>
+      </div>
+    </div>
+  </div>
+</template>
+
         </div>
       </section>
     </main>

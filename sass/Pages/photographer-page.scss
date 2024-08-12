@@ -412,4 +412,12 @@
     object-position: center;
     border-radius: var(--buttons-border-radius);
   }
+  &__video {
+    width: 350px;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: var(--buttons-border-radius);
+    @include center-flex-column;
+}
 }

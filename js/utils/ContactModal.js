@@ -72,6 +72,15 @@ class ContactModal
 		{
 			this.closeModalFadeOut();
 		});
+
+        // Ajout de l'événement pour fermer la modale en cliquant en dehors du contenu
+        this.modal.addEventListener("click", (event) => {
+            if (event.target === this.modal) {
+                this.closeModalFadeOut();
+            }
+        });
+
+
 	}
 
 	displayContactModal()
@@ -231,4 +240,5 @@ class ContactModal
 // Initialisation de la modale de contact
 // const contactModal = new ContactModal(".contact__modal");
 
-export default ContactFormBuilder;
+
+export {ContactModal, ContactFormBuilder};
