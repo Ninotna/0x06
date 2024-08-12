@@ -1,121 +1,81 @@
-class PhotographerProfileTemplate
-{
-	constructor(card)
-	{
-		this.card = card;
-	}
+import {ContactModal,ContactFormBuilder} from "../utils/contactModal.js";
 
-	/**
-	 * Crée la carte de profil pour le photographe
-	 * @returns {HTMLElement} - La section du profil du photographe
-	 */
-	createProfileCard()
-	{
-		const { name, city, country, tagline, portrait } = this.card;
+export default class PhotographerProfileTemplate {
+    constructor(card) {
+        this.card = card;
+    }
 
-		// Récupérer le template
-		const template = document.getElementById('profile-template');
-		const clone = document.importNode(template.content, true);
+    createProfileCard() {
+        const template = document.getElementById('profile-template');
+        const profileElement = document.importNode(template.content, true);
 
-		// Mettre à jour le contenu du clone
-		clone.querySelector('.profile__name').textContent = name;
-		clone.querySelector('.profile__location').textContent = `${city}, ${country}`;
-		clone.querySelector('.profile__tagline').textContent = tagline;
-		clone.querySelector('.profile__image').src = `./assets/photographersId/${portrait}`;
-		clone.querySelector('.profile__image').alt = `Photo de profil du compte de: ${name}`;
+        profileElement.querySelector('.profile__name').textContent = this.card.name;
+        profileElement.querySelector('.profile__location').textContent = `${this.card.city}, ${this.card.country}`;
+        profileElement.querySelector('.profile__tagline').textContent = this.card.tagline;
+        profileElement.querySelector('.profile__image').src = `./assets/photographersId/${this.card.portrait}`;
+        profileElement.querySelector('.profile__image').alt = `Photo de profil de ${this.card.name}`;
 
-		return clone;
-	}
+        return profileElement;
+    }
 
-	/**
-	 * Crée un élément média (image ou vidéo) pour une publication.
-	 * @arg mediaType: Type de média ('image' ou 'video').
-	 * @arg mediaSrc: Source du média.
-	 * @arg mediaAlt: Texte alternatif pour le média (pour les images).
-	 * @returns {HTMLElement} - L'élément HTML correspondant au média.
-	 */
-	createMediaElement(mediaType, mediaSrc, mediaAlt = '')
-	{
-		let mediaElement;
+    static updateProfileUI(card, container) {
+        const profileTemplate = new PhotographerProfileTemplate(card);
+        const profileElement = profileTemplate.createProfileCard();
+        container.appendChild(profileElement);
 
-		if (mediaType === 'image')
-		{
-			mediaElement = document.createElement('img');
-			mediaElement.className = 'images__image';
-			mediaElement.src = mediaSrc;
-			mediaElement.alt = mediaAlt;
-		}
-		else if (mediaType === 'video')
-		{
-			mediaElement = document.createElement('video');
-			mediaElement.className = 'images__video';
-			mediaElement.src = mediaSrc;
-			mediaElement.setAttribute('controls', 'true');
-		}
+        const contactButton = container.querySelector(".contact-button");
+        contactButton.addEventListener("click", () => {
+            const contactModal = new ContactModal(".contact__modal");
+            contactModal.displayContactModal();
+        });
+    }
 
-		return (mediaElement);
-	}
+    // Nouvelle méthode pour créer un post avec une image
+    createPostImage() {
+        const template = document.getElementById('image-post-template');
+        const postElement = document.importNode(template.content, true);
 
-	/**
-	 * Crée la carte pour les publications du photographe
-	 * @returns {HTMLElement} - Le conteneur des publications
-	 */
-	createPostsCard()
-	{
-		const { id, photographersId, name, title, image, video, likes, date } = this.card;
+        postElement.querySelector('.images__post-container').setAttribute('data-post-id', this.card.id);
+        postElement.querySelector('.images__post-container').setAttribute('data-photographers-id', this.card.photographersId);
+        postElement.querySelector('.images__post-container').setAttribute('data-publishing-date', this.card.date);
+        postElement.querySelector('.images__post-container').setAttribute('data-likes', this.card.likes);
+        postElement.querySelector('.images__post-container').setAttribute('data-title', this.card.title);
 
-		// Créer le conteneur principal pour les publications
-		const postContainer = document.createElement('div');
-		postContainer.className = 'images__post-container';
-		postContainer.setAttribute('data-post-id', id);
-		postContainer.setAttribute('data-photographers-id', photographersId);
+        const imgElement = postElement.querySelector('.images__image');
+        imgElement.src = `./assets/media/${this.card.name}/${this.card.image}`;
+        imgElement.alt = `${this.card.title} fait le ${this.card.date}`;
+        imgElement.title = this.card.title;
 
-		const post = document.createElement('div');
-		post.className = 'images__post';
+        const descriptionElement = postElement.querySelector('.images__post-description');
+        descriptionElement.textContent = this.card.title;
 
-		// Créer le lien pour la publication
-		const link = document.createElement('a');
-		link.href = '#';
-		link.title = title;
+        const likeButton = postElement.querySelector('.images__post-like-button');
+        likeButton.innerHTML = `${this.card.likes} <i class="fa-solid fa-heart"></i>`;
 
-		// Créer l'élément média (image ou vidéo)
-		if (image)
-		{
-			const mediaSrc = `./assets/media/${name}/${image}`;
-			const imgElement = this.createMediaElement('image', mediaSrc, `'${title}' fait le ${date}`);
-			link.appendChild(imgElement);
-		}
-		else if (video)
-		{
-			const mediaSrc = `./assets/media/${name}/${video}`;
-			const videoElement = this.createMediaElement('video', mediaSrc);
-			link.appendChild(videoElement);
-		}
+        return postElement;
+    }
 
-		post.appendChild(link);
+    // Nouvelle méthode pour créer un post avec une vidéo
+    createPostVideo() {
+        const template = document.getElementById('video-post-template');
+        const postElement = document.importNode(template.content, true);
 
-		// Créer le conteneur pour le texte de la publication
-		const postTextContainer = document.createElement('div');
-		postTextContainer.className = 'images__post-text';
+        postElement.querySelector('.images__post-container').setAttribute('data-post-id', this.card.id);
+        postElement.querySelector('.images__post-container').setAttribute('data-photographers-id', this.card.photographersId);
+        postElement.querySelector('.images__post-container').setAttribute('data-publishing-date', this.card.date);
+        postElement.querySelector('.images__post-container').setAttribute('data-likes', this.card.likes);
+        postElement.querySelector('.images__post-container').setAttribute('data-title', this.card.title);
 
-		// Créer et ajouter la description de la publication
-		const description = document.createElement('p');
-		description.className = 'images__post-description';
-		description.textContent = title;
+        const videoElement = postElement.querySelector('.images__video');
+        videoElement.src = `./assets/media/${this.card.name}/${this.card.video}`;
+        videoElement.title = this.card.title;
 
-		// Créer et ajouter le bouton des likes
-		const likeButton = document.createElement('button');
-		likeButton.className = 'images__post-like-button';
-		likeButton.innerHTML = `${likes} <i class="fa-solid fa-heart"></i>`;
+        const descriptionElement = postElement.querySelector('.images__post-description');
+        descriptionElement.textContent = this.card.title;
 
-		postTextContainer.appendChild(description);
-		postTextContainer.appendChild(likeButton);
+        const likeButton = postElement.querySelector('.images__post-like-button');
+        likeButton.innerHTML = `${this.card.likes} <i class="fa-solid fa-heart"></i>`;
 
-		post.appendChild(postTextContainer);
-		postContainer.appendChild(post);
-
-		return (postContainer);
-	}
+        return postElement;
+    }
 }
-
-export default PhotographerProfileTemplate;

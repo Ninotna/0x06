@@ -663,5 +663,18 @@ button ul {
   object-position: center;
   border-radius: var(--buttons-border-radius);
 }
+.images__video {
+  width: 350px;
+  height: 300px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: var(--buttons-border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  text-align: center;
+}
 
 /*# sourceMappingURL=newstyle.css.map */
