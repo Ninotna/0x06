@@ -4,7 +4,8 @@ import PhotographerProfileTemplate from '../templates/photographerProfile.js';
 import getParameter from '../utils/getParameters.js';
 import { PhotographerFactory } from '../factories/media.js';
 import { getUserInfos, getPostsOfUser } from '../utils/photographerUtils.js';
-import  {ContactModal, ContactFormBuilder}  from '../utils/contactModal.js'; // Assurez-vous que ContactModal est bien exporté de cette manière
+import  {ContactModal, ContactFormBuilder}  from '../utils/contactModal.js';
+import { displayLightboxModal } from './components/lightbox.js';
 
 // Déclaration de la classe principale pour gérer la page du photographe
 class PhotographerApp {
