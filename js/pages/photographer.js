@@ -6,7 +6,7 @@ import { PhotographerFactory } from "../factories/media.js";
 import { getUserInfos, getPostsOfUser } from "../utils/photographerUtils.js";
 import { ContactModal } from "../components/ContactModal.js";
 import { CarouselLightbox } from "../components/CarouselLightbox.js";
-import { getTotalLikes, getPhotographerPrice } from "../utils/photographerData.js";
+import { getTotalLikes, getPhotographerPrice, increaseLike } from "../utils/photographerData.js";
 
 // Déclaration de la classe principale pour gérer la page du photographe
 class PhotographerApp {
@@ -54,6 +54,27 @@ class PhotographerApp {
         document.querySelector(".main__likes p").innerHTML = `${totalLikes} <i class="fa-solid fa-heart"></i>`;
         document.querySelector(".main__daily-cost p").textContent = `${photographerPrice}€ / jour`;
     }
+    // Méthode pour gérer les clics sur les icônes de cœur
+    static handleLikeClicks(mediaArray, photographerId) {
+      const likeButtons = document.querySelectorAll(".images__post-like-button");
+
+      likeButtons.forEach(button => {
+          button.addEventListener("click", (event) => {
+              const mediaId = parseInt(event.currentTarget.closest(".images__post-container").dataset.postId);
+
+              // Augmente le nombre de likes pour le média cliqué
+              const newLikeCount = increaseLike(mediaArray, mediaId);
+
+              if (newLikeCount !== null) {
+                  // Met à jour le DOM pour afficher le nouveau nombre de likes
+                  event.currentTarget.innerHTML = `${newLikeCount} <i class="fa-solid fa-heart"></i>`;
+
+                  // Met à jour le nombre total de likes affiché sur la page
+                  PhotographerApp.updateLikesAndPrice(photographerId, mediaArray, []);
+              }
+          });
+      });
+  }
 }
 
 // Initialisation de l'application des photographes
@@ -91,6 +112,9 @@ launchPhotographerApp.then((data) => {
 
     // Mise à jour du nombre de likes et du prix quotidien
     PhotographerApp.updateLikesAndPrice(urlPhotographerId, photographerMediaArray, photographers);
+
+       // Gestion des clics sur les icônes de cœur
+       PhotographerApp.handleLikeClicks(photographerMediaArray, urlPhotographerId);
 
     // Initialisation de la modale de contact avec le nom complet du photographe
     const contactModal = new ContactModal(".contact__modal");

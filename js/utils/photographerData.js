@@ -56,3 +56,13 @@ export function getPhotographerPrice(photographers, photographerId) {
      * - Sinon, retourne null, indiquant qu'aucun photographe correspondant n'a été trouvé.
      */
 }
+
+
+// Fonction pour augmenter le nombre de likes d'un média spécifique
+export function increaseLike(mediaArray, mediaId) {
+    const media = mediaArray.find(media => media.id === mediaId);
+    if (media) {
+        media.likes += 1;
+    }
+    return media ? media.likes : null;
+}
