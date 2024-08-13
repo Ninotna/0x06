@@ -1,7 +1,7 @@
 export class CarouselLightbox
 {
 	/* Gère le carrousel et la modale lightbox */
-	constructor(modalSelector, mediaArray)
+	constructor(modalSelector, mediaArray, photographerId)
 	{
 		// Initialisation des informations du carrousel
 		this.carouselInfo = {
@@ -13,6 +13,7 @@ export class CarouselLightbox
 		// Sélection de la modale lightbox dans le DOM
 		this.modalLightbox = document.querySelector(modalSelector);
 		this.photographerMediaArray = mediaArray;
+		this.photographerId = photographerId; // Assignation de photographerId
 
 		// Variables pour l'URL de l'image, le nom du fichier et la description du post
 		this.imageUrl = "";
@@ -49,34 +50,26 @@ export class CarouselLightbox
 	}
 
 	// Affiche la modale lightbox
-	displayLightboxModal(e)
+	displayLightboxModal(e) 
 	{
-		e.preventDefault(); // Empêche le comportement par défaut du lien ou bouton cliqué
+		e.preventDefault(); // Empêche l'action par défaut du lien ou bouton cliqué
 		this.modalLightbox.classList.add("fade-in"); // Ajoute une classe pour l'animation d'apparition
 		this.modalLightbox.showModal(); // Affiche la modale
-		setTimeout(() =>
-		{
+		setTimeout(() => {
 			this.modalLightbox.classList.remove("fade-in"); // Retire la classe après l'animation
 		}, 250);
+	
+		// Récupère le nom de fichier et la description de l'image/vidéo cliquée
+		const imageUrl = e.currentTarget.children[0].getAttribute("src"); // Obtient l'URL de l'image/vidéo cliquée
+		const imageFileName = imageUrl.split(`/assets/media/${this.photographerId}/`)[1]; // Extrait le nom du fichier à partir de l'URL
+		const postDescription = e.currentTarget.getAttribute("title"); // Obtient la description du post
+	
+		// Met à jour l'image et la description dans la modale en utilisant PhotographerId
+		this.updateModalImage(this.photographerId, imageFileName, postDescription);
 
-		// Création des tableaux des noms de fichiers et descriptions
-		let arrayOfImageFileNames = this.photographerMediaArray.map((post) =>
-		{
-			return post.image || post.video; // Récupère le nom du fichier image ou vidéo
-		});
-
-		let arrayOfDescriptions = this.photographerMediaArray.map((post) =>
-		{
-			return post.title; // Récupère le titre du post
-		});
-
-		// Récupère les informations de l'image/vidéo cliquée
-		this.imageUrl = e.currentTarget.children[0].getAttribute("src");
-		this.imageFileName = this.imageUrl.split("/Posts photos/")[1];
-		this.postDescription = e.currentTarget.getAttribute("title");
-
-		// Met à jour l'image et la description dans la modale
-		this.updateModalImage(this.imageFileName, this.postDescription);
+		// Mise à jour des variables de l'objet
+		this.imageFileName = imageFileName;
+		this.postDescription = postDescription;
 	}
 
 	// Navigation entre les images/vidéos dans la modale
@@ -87,6 +80,9 @@ export class CarouselLightbox
 		{
 			return post.image || post.video;
 		});
+
+		console.log("Current Image/Video:", this.imageFileName);
+    	console.log("Array of File Names:", arrayOfImageFileNames);
 
 		let arrayOfDescriptions = this.photographerMediaArray.map((post) =>
 		{
@@ -107,91 +103,80 @@ export class CarouselLightbox
 	// Change l'image/vidéo affichée dans la modale
 	changeImage(arrayOfImageFileNames, currentImageFileName, event, arrayOfDescriptions)
 	{
-		this.carouselInfo.actualIndex = arrayOfImageFileNames.indexOf(currentImageFileName); // Récupère l'index de l'image/vidéo actuelle
+		// Récupère l'index de l'image/vidéo actuelle
+		let currentIndex = arrayOfImageFileNames.indexOf(currentImageFileName);
+		console.log("Current Index:", currentIndex);
 
-		// Détermine la direction en fonction de l'événement (flèche gauche/droite ou bouton cliqué)
-		if (typeof event !== "string")
-		{
-			this.carouselInfo.direction = event.currentTarget.children[0].classList.contains("fa-chevron-left") ? -1 : 1;
-		}
-		else
-		{
-			this.carouselInfo.direction = event.includes("ArrowLeft") ? -1 : 1;
-		}
+		let direction;
 
-		// Vérifie si l'utilisateur est à la première ou dernière image
-		let userClicksNextOnLastImage = this.carouselInfo.direction + this.carouselInfo.actualIndex > arrayOfImageFileNames.length - 1;
-		let userClicksPreviousOnFirstImage = this.carouselInfo.direction + this.carouselInfo.actualIndex < 0;
-
-		// Met à jour l'index suivant en fonction de la direction et des limites (boucle)
-		if (userClicksNextOnLastImage)
-		{
-			this.carouselInfo.nextIndex = 0;
-		}
-		else if (userClicksPreviousOnFirstImage)
-		{
-			this.carouselInfo.nextIndex = arrayOfImageFileNames.length - 1;
-		}
-		else
-		{
-			this.carouselInfo.nextIndex = this.carouselInfo.direction + this.carouselInfo.actualIndex;
+		// Détermine la direction en fonction de l'événement (touche du clavier ou bouton cliqué)
+		if (typeof event === "string") {
+			direction = event.includes("ArrowLeft") ? -1 : 1;
+		} else {
+			direction = event.currentTarget.classList.contains("lightbox__button-previous") ? -1 : 1;
 		}
 
-		// Met à jour les variables avec les nouvelles informations de l'image/vidéo suivante
-		let nextImageFileName = arrayOfImageFileNames[this.carouselInfo.nextIndex];
-		let nextPostDescription = arrayOfDescriptions[this.carouselInfo.nextIndex];
+		console.log("Direction:", direction);
 
-		this.imageFileName = nextImageFileName;
+		// Calcul du nouvel index avec gestion circulaire
+		let newIndex = (currentIndex + direction + arrayOfImageFileNames.length) % arrayOfImageFileNames.length;
+
+		console.log("New Index:", newIndex);
+
+		const nextImageFileName = arrayOfImageFileNames[newIndex];
+		const nextPostDescription = arrayOfDescriptions[newIndex];
+
+		// Met à jour l'index actuel et les autres variables avec la nouvelle image/vidéo
+		this.imageFileName = nextImageFileName; // Mettez à jour this.imageFileName avec la nouvelle image/vidéo
 		this.postDescription = nextPostDescription;
 
-		// Met à jour l'interface utilisateur avec la nouvelle image/vidéo et sa description
-		this.updateModalImage(nextImageFileName, nextPostDescription);
+		// Met à jour la lightbox avec la nouvelle image ou vidéo
+		this.updateModalImage(this.photographerId, nextImageFileName, nextPostDescription);
 	}
 
-// Met à jour l'image/vidéo et la description dans la modale
-updateModalImage(newImageFileName, newPostDescription)
-{
-    const imageElement = this.modalLightbox.querySelector(".lightbox__image"); // Sélectionne l'élément image
-    const videoElement = this.modalLightbox.querySelector(".lightbox__video"); // Sélectionne l'élément vidéo
-    const imageDescriptionElement = this.modalLightbox.querySelector(".lightbox__post-description"); // Sélectionne l'élément de description du post
 
-    // Vérifiez que les éléments existent avant de modifier leurs propriétés
-    if (imageElement && videoElement && imageDescriptionElement)
-    {
-        console.log({ newImageFileName, newPostDescription }); // Affiche les nouvelles informations dans la console
-        let fileIsAPhotography = /\.(jpg|jpeg|png|gif)$/i.test(newImageFileName); // Vérifie si le fichier est une image
+	// Met à jour l'image/vidéo et la description dans la modale
+	updateModalImage(PhotographerId, newImageFileName, newPostDescription)
+	{
+		const imageElement = this.modalLightbox.querySelector(".lightbox__image"); // Sélectionne l'élément image
+		const videoElement = this.modalLightbox.querySelector(".lightbox__video"); // Sélectionne l'élément vidéo
+		const imageDescriptionElement = this.modalLightbox.querySelector(".lightbox__post-description"); // Sélectionne l'élément de description du post
 
-        if (fileIsAPhotography)
-        {
-            // Si le fichier est une image
-            videoElement.classList.add("hide"); // Masque l'élément vidéo
-            imageElement.classList.remove("hide"); // Affiche l'élément image
-            imageElement.setAttribute(
-                "src",
-                `../assets/images/Posts photos/${newImageFileName}` // Met à jour l'URL de l'image
-            );
-        }
-        else
-        {
-            // Si le fichier est une vidéo
-            imageElement.classList.add("hide"); // Masque l'élément image
-            videoElement.classList.remove("hide"); // Affiche l'élément vidéo
-            videoElement.setAttribute(
-                "src",
-                `../assets/images/Posts photos/${newImageFileName}` // Met à jour l'URL de la vidéo
-            );
-            videoElement.pause(); // Stoppe la lecture de la vidéo si elle est en cours
-            videoElement.currentTime = 0; // Réinitialise la vidéo au début
-        }
+		// Vérifiez que l'élément de description existe avant de continuer
+		if (imageDescriptionElement) {
+			console.log({ newImageFileName, newPostDescription }); // Affiche les nouvelles informations dans la console
+			let fileIsAPhotography = /\.(jpg|jpeg|png|gif)$/i.test(newImageFileName); // Vérifie si le fichier est une image
 
-        // Met à jour la description de l'image/vidéo
-        imageDescriptionElement.textContent = newPostDescription;
-    }
-    else
-    {
-        console.error("Un ou plusieurs éléments de la lightbox sont introuvables dans le DOM.");
-    }
-}
+			// Chemin d'accès au média avec PhotographerId
+			const mediaPath = `./assets/media/${PhotographerId}/${newImageFileName}`;
+
+			if (fileIsAPhotography) {
+				if (imageElement) {
+					imageElement.classList.remove("hide"); // Affiche l'élément image
+					videoElement.classList.add("hide"); // Masque l'élément vidéo
+					imageElement.setAttribute("src", mediaPath); // Met à jour l'URL de l'image
+				} else {
+					console.error("L'élément image n'a pas été trouvé dans la lightbox.");
+				}
+			} else {
+				if (videoElement) {
+					videoElement.classList.remove("hide"); // Affiche l'élément vidéo
+					imageElement.classList.add("hide"); // Masque l'élément image
+					videoElement.setAttribute("src", mediaPath); // Met à jour l'URL de la vidéo
+					videoElement.pause(); // Stoppe la lecture de la vidéo si elle est en cours
+					videoElement.currentTime = 0; // Réinitialise la vidéo au début
+				} else {
+					console.error("L'élément vidéo n'a pas été trouvé dans la lightbox.");
+				}
+			}
+
+			// Met à jour la description du post
+			imageDescriptionElement.textContent = newPostDescription;
+		} else {
+			console.error("L'élément de description n'a pas été trouvé dans la lightbox.");
+		}
+	}
+
 
 	// Ferme la modale et retire les écouteurs d'événements
 	closeModalAndRemoveEventListeners()

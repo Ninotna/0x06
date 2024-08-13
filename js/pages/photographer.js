@@ -4,7 +4,7 @@ import PhotographerProfileTemplate from "../templates/photographerProfile.js";
 import getParameter from "../utils/getParameters.js";
 import { PhotographerFactory } from "../factories/media.js";
 import { getUserInfos, getPostsOfUser } from "../utils/photographerUtils.js";
-import { ContactModal, ContactFormBuilder } from "../components/ContactModal.js";
+// import { ContactModal, ContactFormBuilder } from "../components/ContactModal.js";
 import { CarouselLightbox } from "../components/CarouselLightbox.js";
 
 // Déclaration de la classe principale pour gérer la page du photographe
@@ -42,6 +42,7 @@ class PhotographerApp {
 	// Méthode statique qui met à jour l'interface utilisateur avec les informations du profil du photographe
 	static changeUIOfProfile(dataObject, profileContainer) {
 		PhotographerProfileTemplate.updateProfileUI(dataObject, profileContainer);
+    // console.log(dataObject);
 	}
 
 
@@ -92,6 +93,8 @@ launchPhotographerApp.then((data) => {
     ".lightbox__modal",
     photographerMediaArray
   );
+  
+  carousel.photographerId = urlPhotographerId; // Assurez-vous de définir cela
 
   // Ajouter un écouteur d'événement pour chaque post (image/vidéo) afin d'afficher la lightbox au clic
   postsContainer.querySelectorAll(".post-class").forEach((postElement) => {

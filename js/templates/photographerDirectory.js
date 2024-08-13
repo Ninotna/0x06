@@ -5,7 +5,7 @@
  */
 function photographerTemplate(data) {
     const { id, name, city, country, tagline, price, portrait } = data;
-    const picture = `assets/photographersId/${portrait}`;
+    const picture = `assets/photographersIdCard/${portrait}`;
 
     /**
      * Fonction qui génère la carte DOM pour le photographe
