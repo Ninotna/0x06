@@ -35,6 +35,10 @@ export function getPhotographerPrice(photographers, photographerId) {
      * et un identifiant de photographe (photographerId).
      * Elle retourne le prix quotidien du photographe correspondant à cet identifiant.
      */
+
+    console.log('Photographers:', photographers);
+    console.log('PhotographerId:', photographerId);
+
     
     // 1. Recherche du photographe dont l'identifiant correspond à photographerId
     const photographer = photographers.find(p => p.id === photographerId);

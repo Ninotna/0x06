@@ -41,3 +41,12 @@ export function getPostsOfUser(arrayOfPosts, urlIdOfPhotographer)
 	}
 	return (photographersPostsArray);
 }
+
+
+export function cleanUpEventListeners() {
+    const likeButtons = document.querySelectorAll(".images__post-like-button");
+    likeButtons.forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+}
