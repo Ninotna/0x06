@@ -4,7 +4,7 @@ import PhotographerProfileTemplate from "../templates/photographerProfile.js";
 import getParameter from "../utils/getParameters.js";
 import { PhotographerFactory } from "../factories/media.js";
 import { getUserInfos, getPostsOfUser } from "../utils/photographerUtils.js";
-// import { ContactModal, ContactFormBuilder } from "../components/ContactModal.js";
+import { ContactModal, ContactFormBuilder } from "../components/ContactModal.js";
 import { CarouselLightbox } from "../components/CarouselLightbox.js";
 
 // Déclaration de la classe principale pour gérer la page du photographe
@@ -39,13 +39,10 @@ class PhotographerApp {
     });
   }
 
-	// Méthode statique qui met à jour l'interface utilisateur avec les informations du profil du photographe
-	static changeUIOfProfile(dataObject, profileContainer) {
-		PhotographerProfileTemplate.updateProfileUI(dataObject, profileContainer);
-    // console.log(dataObject);
-	}
-
-
+  // Méthode statique qui met à jour l'interface utilisateur avec les informations du profil du photographe
+  static changeUIOfProfile(dataObject, profileContainer) {
+    PhotographerProfileTemplate.updateProfileUI(dataObject, profileContainer);
+  }
 }
 
 // Initialisation de l'application des photographes
@@ -75,18 +72,20 @@ launchPhotographerApp.then((data) => {
 
   // Mise à jour de l'interface utilisateur
   PhotographerApp.changeUIOfProfile(photographerObject, profileContainer);
-
   PhotographerApp.changeUIOfPosts(
     photographerMediaArray,
     photographerObject.name,
     postsContainer
   );
 
-  // Méthode statique qui met à jour l'interface utilisateur avec les informations du profil du photographe
-  // Récupération des données et mise à jour de l'interface utilisateur
-  PhotographerApp.changeUIOfProfile = (dataObject, profileContainer) => {
-    PhotographerProfileTemplate.updateProfileUI(dataObject, profileContainer);
-  };
+  // Initialisation de la modale de contact avec le nom complet du photographe
+  const contactModal = new ContactModal(".contact__modal");
+
+  // Ajouter un écouteur d'événement au bouton de contact pour ouvrir la modale
+  const contactButton = document.querySelector('.contact-button');
+  contactButton.addEventListener('click', () => {
+    contactModal.displayContactModal(photographerObject.name);
+  });
 
   // Initialisation du CarouselLightbox avec les données du photographe
   const carousel = new CarouselLightbox(

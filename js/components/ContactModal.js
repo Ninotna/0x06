@@ -39,59 +39,45 @@ class ContactFormBuilder
 	}
 }
 
-class ContactModal
-{
-	constructor(modalSelector)
-	{
-		this.modal = document.querySelector(modalSelector);
-		this.formDataValidation = {
-			firstName: false,
-			lastName: false,
-			email: false,
-			message: false
-		};
-		this.formBuilder = new ContactFormBuilder();
-		this.init();
+class ContactModal {
+	constructor(modalSelector) {
+	  this.modal = document.querySelector(modalSelector);
+	  this.titleElement = this.modal.querySelector('.contact__title');
+	  this.closeButton = this.modal.querySelector('.contact__button-close-dialog');
+	  this.init();
 	}
-
-	init()
-	{
-		const form = this.modal.querySelector(".contact__form");
-		form.addEventListener("submit", this.handleForm.bind(this));
-
-		const inputs = this.modal.querySelectorAll(".contact__input");
-		inputs.forEach(input =>
-		{
-			input.addEventListener("change", this.handleInputs.bind(this));
-		});
-		const textArea = this.modal.querySelector(".contact__text-area");
-		textArea.addEventListener("change", this.handleInputs.bind(this));
-
-		const closeModalButton = this.modal.querySelector(".contact__button-close-dialog");
-		closeModalButton.addEventListener("click", () =>
-		{
-			this.closeModalFadeOut();
-		});
-
-        // Ajout de l'événement pour fermer la modale en cliquant en dehors du contenu
-        this.modal.addEventListener("click", (event) => {
-            if (event.target === this.modal) {
-                this.closeModalFadeOut();
-            }
-        });
-
-
+  
+	init() {
+	  // Ajouter l'événement pour fermer la modale en cliquant sur le bouton de fermeture
+	  this.closeButton.addEventListener('click', () => this.closeModal());
+  
+	  // Ajouter l'événement pour fermer la modale en cliquant en dehors du contenu
+	  this.modal.addEventListener('click', (event) => {
+		if (event.target === this.modal) {
+		  this.closeModal();
+		}
+	  });
 	}
-
-	displayContactModal()
-	{
-		this.modal.classList.add("fade-in");
-		setTimeout(() =>
-		{
-			this.modal.classList.remove("fade-in");
-		}, 250);
-
-		this.modal.showModal();
+  
+	displayContactModal(fullName) {
+	  // Remplacement dynamique du nom dans le titre de la modale
+	  this.titleElement.innerHTML = `Contactez-moi <br /> ${fullName}`;
+  
+	  // Affichage de la modale avec animation
+	  this.modal.classList.add("fade-in");
+	  this.modal.showModal();
+	  setTimeout(() => {
+		this.modal.classList.remove("fade-in");
+	  }, 250);
+	}
+  
+	closeModal() {
+	  // Ferme la modale avec une animation de disparition
+	  this.modal.classList.add("fade-out");
+	  setTimeout(() => {
+		this.modal.classList.remove("fade-out");
+		this.modal.close();
+	  }, 250);
 	}
 
 	handleForm(e)
@@ -106,7 +92,7 @@ class ContactModal
 		{
 			e.currentTarget.classList.add("hide");
 			validFormMessage.classList.remove("hide");
-			console.log("Formulaire envoyé avec succès!", this.formBuilder);
+			console.log("Formulaire envoyé avec succès!", this.formBuilder.getFormData());
 		}
 		else
 		{
@@ -119,21 +105,21 @@ class ContactModal
 	handleInputs(event)
 	{
 		const inputElement = event.target;
-		const valueOfInput = inputElement.value;
+		const valueOfInput = inputElement.value.trim(); // Suppression des espaces autour du texte
 		const inputNameAttribute = inputElement.getAttribute("name");
 		const containerOfInput = inputElement.closest(".contact__fieldset-section");
 		const errorParagraph = containerOfInput.querySelector(".contact__error-message");
 
 		const valueIsOverTwoCharsLong = valueOfInput.length >= 2;
 		const valueIsOverTenCharsLong = valueOfInput.length >= 10;
-		const emailRegex = /^([a-zA-Z0-9.-]+)@([a-zA-Z0-9]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expression régulière plus stricte pour les emails
 
 		switch (inputNameAttribute)
 		{
-			case "name":
+			case "first-name":
+			case "last-name":
 			{
-				const firstNameOrLastName =
-					inputElement.getAttribute("id") === "first-name" ? "firstName" : "lastName";
+				const firstNameOrLastName = inputNameAttribute === "first-name" ? "firstName" : "lastName";
 
 				if (valueIsOverTwoCharsLong)
 				{
@@ -157,7 +143,7 @@ class ContactModal
 			}
 			case "email":
 			{
-				if (valueIsOverTwoCharsLong && emailRegex.test(valueOfInput))
+				if (emailRegex.test(valueOfInput))
 				{
 					this.formDataValidation.email = true;
 					this.validateInput(inputElement, true);
@@ -171,7 +157,7 @@ class ContactModal
 					inputElement.setAttribute("aria-invalid", "true");
 					this.validateInput(inputElement, false);
 					errorParagraph.classList.remove("hide");
-					errorParagraph.textContent = "Veuillez entrer un email sous ce format: pseudonyme@domaine.extension";
+					errorParagraph.textContent = "Veuillez entrer un email valide (ex. : pseudonyme@domaine.com)";
 				}
 				break;
 			}
@@ -239,6 +225,5 @@ class ContactModal
 
 // Initialisation de la modale de contact
 // const contactModal = new ContactModal(".contact__modal");
-
 
 export {ContactModal, ContactFormBuilder};

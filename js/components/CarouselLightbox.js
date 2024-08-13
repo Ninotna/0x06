@@ -81,8 +81,8 @@ export class CarouselLightbox
 			return post.image || post.video;
 		});
 
-		console.log("Current Image/Video:", this.imageFileName);
-    	console.log("Array of File Names:", arrayOfImageFileNames);
+		// console.log("Current Image/Video:", this.imageFileName);
+    	// console.log("Array of File Names:", arrayOfImageFileNames);
 
 		let arrayOfDescriptions = this.photographerMediaArray.map((post) =>
 		{
@@ -105,7 +105,7 @@ export class CarouselLightbox
 	{
 		// Récupère l'index de l'image/vidéo actuelle
 		let currentIndex = arrayOfImageFileNames.indexOf(currentImageFileName);
-		console.log("Current Index:", currentIndex);
+		// console.log("Current Index:", currentIndex);
 
 		let direction;
 
@@ -116,12 +116,12 @@ export class CarouselLightbox
 			direction = event.currentTarget.classList.contains("lightbox__button-previous") ? -1 : 1;
 		}
 
-		console.log("Direction:", direction);
+		// console.log("Direction:", direction);
 
 		// Calcul du nouvel index avec gestion circulaire
 		let newIndex = (currentIndex + direction + arrayOfImageFileNames.length) % arrayOfImageFileNames.length;
 
-		console.log("New Index:", newIndex);
+		// console.log("New Index:", newIndex);
 
 		const nextImageFileName = arrayOfImageFileNames[newIndex];
 		const nextPostDescription = arrayOfDescriptions[newIndex];
@@ -144,7 +144,7 @@ export class CarouselLightbox
 
 		// Vérifiez que l'élément de description existe avant de continuer
 		if (imageDescriptionElement) {
-			console.log({ newImageFileName, newPostDescription }); // Affiche les nouvelles informations dans la console
+			// console.log({ newImageFileName, newPostDescription }); // Affiche les nouvelles informations dans la console
 			let fileIsAPhotography = /\.(jpg|jpeg|png|gif)$/i.test(newImageFileName); // Vérifie si le fichier est une image
 
 			// Chemin d'accès au média avec PhotographerId
