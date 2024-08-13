@@ -1,4 +1,4 @@
-import {ContactModal,ContactFormBuilder} from "../utils/contactModal.js";
+import {ContactModal,ContactFormBuilder} from "../components/ContactModal.js";
 
 export default class PhotographerProfileTemplate {
     constructor(card) {

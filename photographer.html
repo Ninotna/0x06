@@ -26,6 +26,8 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://kit.fontawesome.com/309e23caa1.js" crossorigin="anonymous"></script>
     <!-- JS -->
 
     <!-- <script type="module" defer src="js/apis/photographersApi.js"></script>
@@ -149,24 +151,37 @@
       <div class="main__profile-wrapper"></div>
 
       <template id="profile-template">
+        <!-- Section principale du profil -->
         <section class="main__profile-banner">
+          
+          <!-- Conteneur de la carte du profil -->
           <div class="profile__card-container">
             <div class="profile__card">
-              <h1 class="profile__name">[NOM] [PRÉNOM]</h1>
-              <p class="profile__location">[LOCATION]</p>
-              <p class="profile__tagline">[TAGLINE]</p>
+              <!-- Nom et prénom du photographe, à remplir dynamiquement avec JavaScript -->
+              <h1 class="profile__name" data-name></h1>
+              <!-- Localisation du photographe, à remplir dynamiquement -->
+              <p class="profile__location" data-location></p>
+              <!-- Tagline ou slogan du photographe, à remplir dynamiquement -->
+              <p class="profile__tagline" data-tagline></p>
             </div>
           </div>
+      
+          <!-- Bouton de contact, avec un attribut aria-label pour l'accessibilité -->
           <div class="profile__contact">
-            <button type="button" class="contact-button button button--rounded">
+            <button type="button" class="contact-button button button--rounded" aria-label="Ouvrir le formulaire de contact">
               Contactez-moi
             </button>
           </div>
+      
+          <!-- Conteneur de l'image du profil -->
           <div class="profile__image-container">
-            <img src="http://placehold.co/200" alt="" class="profile__image" />
+            <!-- Image du profil, avec un attribut data-image pour être remplie dynamiquement, et un alt text pour l'accessibilité -->
+            <img src="" alt="Photo du profil" class="profile__image" data-image />
           </div>
+      
         </section>
       </template>
+      
 
       <!-- Posts made by the photograph -->
       <section class="main__photographer-container">
@@ -187,7 +202,7 @@
   <div class="images__post-container" data-post-id="" data-photographers-id=""
     data-publishing-date="" data-likes="" data-user-liked="false" data-title="">
     <div class="images__post">
-      <a href="#" title="" aria-label="" role="link" tabindex="0">
+      <a href="#" title="" aria-label="" role="link" tabindex="0" class="post-class">
         <img class="images__image" src="" alt="" />
       </a>
       <div class="images__post-text">
@@ -204,7 +219,7 @@
   <div class="images__post-container" data-post-id="" data-photographers-id=""
     data-publishing-date="" data-likes="" data-user-liked="false" data-title="">
     <div class="images__post">
-      <a href="#" title="" aria-label="" role="link" tabindex="0">
+      <a href="#" title="" aria-label="" role="link" tabindex="0" class="post-class">
         <video src="" class="images__video">
           <track kind="captions" srclang="en" label="English captions"></track>
         </video>
