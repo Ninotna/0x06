@@ -34,6 +34,14 @@ export default class PhotographerProfileTemplate {
     // Nouvelle méthode pour créer un post avec une image
     createPostImage() {
         const template = document.getElementById('image-post-template');
+
+        // console.log("Template trouvé :", template); // Vérifiez si le template est trouvé
+        
+        // Vérifiez que le template existe avant de l'utiliser
+        if (!template) {
+            throw new Error("Template 'image-post-template' non trouvé dans le document HTML");
+        }
+
         const postElement = document.importNode(template.content, true);
 
         postElement.querySelector('.images__post-container').setAttribute('data-post-id', this.card.id);
