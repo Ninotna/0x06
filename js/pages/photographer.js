@@ -8,7 +8,7 @@ import {
   getPostsOfUser,
   cleanUpEventListeners,
 } from "../utils/photographerUtils.js";
-import { ContactModal } from "../components/ContactModal.js";
+import { ContactModal,ContactFormBuilder } from "../components/ContactModal.js";
 import { CarouselLightbox } from "../components/CarouselLightbox.js";
 import {
   getTotalLikes,
