@@ -19,7 +19,7 @@ import {
   sortByLikes,
   sortByDate,
   sortByTitle,
-} from "../utils/photographerFilter.js";
+} from "../utils/photographerSort.js";
 
 // Déclaration de la classe principale pour gérer la page du photographe
 class PhotographerApp {

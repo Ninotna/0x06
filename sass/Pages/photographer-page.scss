@@ -372,8 +372,22 @@
   }
 
 
-  // &__sorter {
-  // }
+  &__sorter {
+    margin-left: 25px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+
+    @include mobile-only {
+        justify-content: center;
+        align-items: center
+    }
+}
+
+&__select-container {
+  //Relative to the icon container, line: 570
+  position: relative;
+}
 
   &__container {
     @include center-flex-column;

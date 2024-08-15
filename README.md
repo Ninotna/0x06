@@ -76,3 +76,7 @@ Ce dossier contient les scripts spécifiques aux pages de l'application.
 ### `main.js`
 
 Le point d'entrée principal du projet. Ce fichier initialise l'application en appelant les fonctions principales lors du chargement de la page.
+
+
+
+

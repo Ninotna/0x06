@@ -102,5 +102,5 @@ init();
 
 
 // Violera la règle de guillemets simples si elle est configurée
-const message = "Hello, world!";
+// const message = "Hello, world!";
 

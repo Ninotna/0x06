@@ -42,7 +42,7 @@
   <body>
     <header class="header" role="banner">
       <a
-        href="../index.html"
+        href="./index.html"
         class="header__logo-wrapper"
         title="Retour vers la page d'acceuil"
         alt="Retour vers la page d'accueil"
@@ -90,15 +90,18 @@
               </legend>
               <section class="contact__fieldset-section">
                 <label for="last-name" class="contact__label">Nom</label>
-                <input type="text" id="last-name" class="contact__input" />
+                <input type="text" id="last-name" class="contact__input" name="last-name" />
+                <p class="contact__error-message hide"></p> <!-- Ajout d'un paragraphe pour afficher l'erreur -->
               </section>
               <section class="contact__fieldset-section">
                 <label for="first-name" class="contact__label">Prénom</label>
-                <input type="text" id="first-name" class="contact__input" />
+                <input type="text" id="first-name" class="contact__input" name="first-name"/>
+                <p class="contact__error-message hide"></p>
               </section>
               <section class="contact__fieldset-section">
-                <label for="email" class="contact__label">Email</label>
-                <input type="email" id="email" class="contact__input" />
+                <label for="email" class="contact__label" >Email</label>
+                <input type="email" id="email" class="contact__input" name="email" />
+                <p class="contact__error-message hide"></p>
               </section>
               <section class="contact__fieldset-section">
                 <label for="message" class="contact__label"
@@ -110,13 +113,20 @@
                   cols="30"
                   rows="10"
                   class="contact__text-area"
+                  name="message"
                 ></textarea>
+                <p class="contact__error-message hide"></p>
               </section>
             </fieldset>
             <button type="submit" class="button contact__submit-button">
               Envoyer
             </button>
           </form>
+        <!-- Section pour le message de confirmation et le bouton de réinitialisation -->
+        <div class="contact__validated-form hide">
+          <p>Merci, votre message a été envoyé avec succès !</p>
+          <button type="button" class="button contact__reset-button">Réinitialiser le formulaire</button>
+      </div>
         </div>
       </dialog>
       <!-- FIN MODALE- CONTACT -->
@@ -199,15 +209,31 @@
       <section class="main__photographer-container">
         <div class="images__sorter">
           <label for="select" class="label">Trier par:</label>
-          <select name="orderby" class="select" id="select">
-            <option value="veuillez selectionner une option" class="option">
-              ---
-            </option>
-            <option value="popularité" class="option">Popularité</option>
-            <option value="date" class="option">Date</option>
-            <option value="titre" class="option">Titre</option>
-          </select>
-        </div>
+          <div class="images__select-container">
+  
+            <div class="dropdown-menu__icon-container">
+              <i class="fa-solid fa-chevron-down dropdown-menu__icon"></i>
+            </div>
+            <!--      Will be  displayed only on mobile devices   -->
+            <select name="orderby" class="select select--mobile-only" id="select"
+              aria-level="Bouton pour ouvrir le menu déroulant">
+              <option value="popularité" class="option">Popularité</option>
+              <option value="date" class="option">Date</option>
+              <option value="titre" class="option">Titre</option>
+            </select>
+            <!--      Will be displayed on widescreen devices      -->
+            <button class="dropdown-menu__sort-button" type="button" role="listbox" aria-expanded="false"
+              aria-level="Bouton pour ouvrir le menu déroulant" role="button">
+              Popularité
+            </button>
+            <div class="dropdown-menu hide">
+              <ul class="dropdown-menu__list" tabindex="0">
+                <li class="dropdown-menu__list-item" tabindex="0">Popularité</li>
+                <li class="dropdown-menu__list-item" tabindex="0">Date</li>
+                <li class="dropdown-menu__list-item" tabindex="0">Titre</li>
+              </ul>
+            </div>
+
         <div class="images">
           
         </div>
