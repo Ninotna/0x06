@@ -10,26 +10,26 @@ import {
   getPostsOfUser,
   cleanUpEventListeners,
 } from "../utils/photographerUtils.js";
-import {
-  ContactModal,
-  ContactFormBuilder,
-} from "../components/ContactModal.js";
+import { ContactModal, ContactFormBuilder } from "../components/ContactModal.js";
 import { CarouselLightbox } from "../components/CarouselLightbox.js";
 import {
   getTotalLikes,
   getPhotographerPrice,
   increaseLike,
 } from "../utils/photographerData.js";
+
+// Importation des fonctions de tri depuis sortUtils.js
 import {
-  sortByLikes,
-  sortByDate,
-  sortByTitle,
-} from "../utils/photographerSort.js";
+  sortPostsForMobile,
+  setItemNameAccessible,
+  sortPostsForWidescreens,
+  setItemName,
+  sortPosts,
+} from "../utils/sortUtils.js";
 
 // Déclaration de la classe principale pour gérer la page du photographe
 class PhotographerApp {
   constructor() {
-    // Création d'une instance de PhotographersApi pour accéder aux données des photographes et de leurs publications
     this.usersDataApi = new PhotographersApi(
       "http://127.0.0.1:5500/v1.2/data/photographers.json"
     );
@@ -38,19 +38,16 @@ class PhotographerApp {
   // Méthode principale asynchrone pour récupérer les données des photographes à partir de l'API
   async main() {
     try {
-      // Appel à l'API pour récupérer les données des photographes
       const photosData = await this.usersDataApi.getPhotos();
       return photosData;
     } catch (error) {
-      // Gestion des erreurs en cas d'échec de la récupération des données
       console.error("Échec de la récupération des données :", error);
       return { error: true, message: error.message };
     }
   }
 
-  // Méthode statique qui met à jour l'interface utilisateur avec les publications du photographe
   static changeUIOfPosts(dataArray, photographerName, container) {
-    container.innerHTML = ""; // Réinitialiser le conteneur des médias
+    container.innerHTML = "";
     dataArray.forEach((postData) => {
       postData.name = photographerName;
       const type = postData.image ? "image" : "video";
@@ -59,18 +56,13 @@ class PhotographerApp {
     });
   }
 
-  // Méthode statique qui met à jour l'interface utilisateur avec les informations du profil du photographe
   static changeUIOfProfile(dataObject, profileContainer) {
     PhotographerProfileTemplate.updateProfileUI(dataObject, profileContainer);
   }
 
-  // Méthode pour mettre à jour dynamiquement le nombre de likes et le prix quotidien
   static updateLikesAndPrice(photographerId, mediaArray, photographers) {
     const totalLikes = getTotalLikes(mediaArray, photographerId);
-    const photographerPrice = getPhotographerPrice(
-      photographers,
-      photographerId
-    );
+    const photographerPrice = getPhotographerPrice(photographers, photographerId);
 
     console.log(photographerPrice);
 
@@ -88,6 +80,7 @@ class PhotographerApp {
       );
     }
   }
+
   static handleLikeClicks(mediaArray, photographerId) {
     const likeButtons = document.querySelectorAll(".images__post-like-button");
 
@@ -97,14 +90,11 @@ class PhotographerApp {
           event.currentTarget.closest(".images__post-container").dataset.postId
         );
 
-        // Augmente le nombre de likes pour le média cliqué
         const newLikeCount = increaseLike(mediaArray, mediaId);
 
         if (newLikeCount !== null) {
-          // Met à jour le DOM pour afficher le nouveau nombre de likes
           event.currentTarget.innerHTML = `${newLikeCount} <i class="fa-solid fa-heart"></i>`;
 
-          // Recalculer et mettre à jour le nombre total de likes affiché sur la page
           const totalLikes = getTotalLikes(mediaArray, photographerId);
           document.querySelector(
             ".main__likes p"
@@ -122,39 +112,37 @@ class PhotographerApp {
   ) {
     const sortSelect = document.getElementById("select");
 
-    sortSelect.addEventListener("change", () => {
-      let sortedArray;
-      switch (sortSelect.value) {
-        case "popularité":
-          sortedArray = sortByLikes(mediaArray);
-          break;
-        case "date":
-          sortedArray = sortByDate(mediaArray);
-          break;
-        case "titre":
-          sortedArray = sortByTitle(mediaArray);
-          break;
-        default:
-          sortedArray = mediaArray; // Aucun tri spécifique, affiche l'ordre original
-      }
-
-      // Met à jour l'affichage des posts
-      PhotographerApp.changeUIOfPosts(
-        sortedArray,
-        photographerName,
-        postsContainer
-      );
-
-      // Met à jour l'ordre des images dans la lightbox
-      carousel.photographerMediaArray = sortedArray;
-
-      // Réattacher les écouteurs d'événements pour chaque post afin d'ouvrir la lightbox
-      postsContainer.querySelectorAll(".post-class").forEach((postElement) => {
-        postElement.addEventListener("click", (e) => {
-          carousel.displayLightboxModal(e);
-        });
-      });
+    sortSelect.addEventListener("change", function () {
+      sortPostsForMobile.call(this, PhotographerApp.sortPostsByProperty);
     });
+
+    const sortButton = document.querySelector(".dropdown-menu__sort-button");
+    sortButton.addEventListener("click", function () {
+      sortPostsForWidescreens.call(this, PhotographerApp.sortPostsByProperty);
+    });
+
+    const dropdownMenuItems = document.querySelectorAll(
+      ".dropdown-menu__list-item"
+    );
+    dropdownMenuItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        setItemName.call(this, PhotographerApp.sortPostsByProperty);
+      });
+      item.addEventListener("keypress", setItemNameAccessible);
+    });
+  }
+
+  static sortPostsByProperty(postsArray, property) {
+    switch (property) {
+      case "popularité":
+        return sortByLikes(postsArray);
+      case "date":
+        return sortByDate(postsArray);
+      case "titre":
+        return sortByTitle(postsArray);
+      default:
+        return postsArray;
+    }
   }
 }
 
@@ -177,16 +165,11 @@ launchPhotographerApp.then((data) => {
 
   const { photographers, media } = data;
 
-  // Récupération des informations du photographe sélectionné
   const photographerObject = getUserInfos(photographers, urlPhotographerId);
-
-  // Récupération des publications du photographe sélectionné
   const photographerMediaArray = getPostsOfUser(media, urlPhotographerId);
 
-  // Nettoie les anciens écouteurs d'événements avant de mettre à jour l'interface
   cleanUpEventListeners();
 
-  // Mise à jour de l'interface utilisateur
   PhotographerApp.changeUIOfProfile(photographerObject, profileContainer);
   PhotographerApp.changeUIOfPosts(
     photographerMediaArray,
@@ -194,42 +177,35 @@ launchPhotographerApp.then((data) => {
     postsContainer
   );
 
-  // Mise à jour du nombre de likes et du prix quotidien
-  const photographersCopy = [...photographers]; // Copie superficielle du tableau
+  const photographersCopy = [...photographers];
   PhotographerApp.updateLikesAndPrice(
     urlPhotographerId,
     photographerMediaArray,
     photographersCopy
   );
 
-  // Gestion des clics sur les icônes de cœur
   PhotographerApp.handleLikeClicks(photographerMediaArray, urlPhotographerId);
 
-  // Initialisation de la modale de contact avec le nom complet du photographe
   const contactModal = new ContactModal(".contact__modal");
 
-  // Ajouter un écouteur d'événement au bouton de contact pour ouvrir la modale
   const contactButton = document.querySelector(".contact-button");
   contactButton.addEventListener("click", () => {
     contactModal.displayContactModal(photographerObject.name);
   });
 
-  // Initialisation du CarouselLightbox avec les données du photographe
   const carousel = new CarouselLightbox(
     ".lightbox__modal",
     photographerMediaArray
   );
 
-  carousel.photographerId = urlPhotographerId; // Assurez-vous de définir cela
+  carousel.photographerId = urlPhotographerId;
 
-  // Ajouter un écouteur d'événement pour chaque post (image/vidéo) afin d'afficher la lightbox au clic
   postsContainer.querySelectorAll(".post-class").forEach((postElement) => {
     postElement.addEventListener("click", (e) => {
       carousel.displayLightboxModal(e);
     });
   });
 
-  // Gestion du tri
   PhotographerApp.handleSortChange(
     photographerMediaArray,
     photographerObject.name,

@@ -53,27 +53,39 @@ export function sortPostsForMobile() {
     sortPosts(buttonElement);
   }
   
-  export function sortPosts(element) {
+  export function sortPosts(element, sortPostsByProperty) {
     const actualPostsNodeList = document.querySelectorAll(".images > *:not(template)");
     const actualPostsArray = Array.from(actualPostsNodeList);
+    
     const actualPostsDataArray = actualPostsArray.map(post => {
       const imageOfPost = post.querySelector("a[href]").children[0];
       const HTMLTagOfImage = imageOfPost.tagName;
-      const thumbnailName = imageOfPost.getAttribute("src").split("/Posts photos/images")[1]
-        || imageOfPost.getAttribute("src").split("/Posts photos/videos")[1];
+  
+      const photographerId = post.getAttribute("data-photographers-id");
+      const srcAttribute = imageOfPost.getAttribute("src");
+      let thumbnailName = null;
+  
+      if (srcAttribute) {
+        // Si l'attribut src est présent, on extrait le nom du fichier
+        thumbnailName = srcAttribute.split(`/assets/media/${photographerId}/`)[1];
+      } else {
+        // Si l'attribut src est manquant, on logue une erreur et ignore cet élément
+        console.error(`L'attribut 'src' est manquant pour une image ou vidéo du photographe avec l'ID ${photographerId}.`);
+        return null; // Retourne null pour indiquer qu'on ignore cet élément
+      }
   
       return {
         title: post.getAttribute("data-title"),
         likes: Number(post.getAttribute("data-likes")),
         date: new Date(post.getAttribute("data-publishing-date")),
-        photographerId: post.getAttribute("data-photographers-id"),
+        photographerId: photographerId,
         id: post.getAttribute("data-post-id"),
         [HTMLTagOfImage === "IMG" ? "image" : "video"]: thumbnailName,
       };
-    });
+    }).filter(post => post !== null); // Filtre les éléments nuls pour éviter les erreurs
   
     const valueOfElement = element.tagName === "BUTTON" ? element.innerText.toLowerCase() : element.value;
-    const sortedArray = PhotographerApp.sortPostsByProperty(actualPostsDataArray, valueOfElement);
+    const sortedArray = sortPostsByProperty(actualPostsDataArray, valueOfElement);
     photographerMediaArray = sortedArray;
   
     const documentFragment = document.createDocumentFragment();
