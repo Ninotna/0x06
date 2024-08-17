@@ -45,7 +45,16 @@ $breakpoints : ( //Breakpoints for the media queries
     justify-content: center;
     align-items: center;
     gap: $gap;
-    text-align:center; //ajout pour aligner les cards en colonne..
+    text-align:left; //ajout pour aligner les cards en colonne..
+}
+
+@mixin left-flex-column($gap: 0px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: $gap;
+    text-align:left; //ajout pour aligner les cards en colonne..
 }
 
 @mixin grid($rows: auto-fill, $columns: auto-fill, $gap: 0px) {
@@ -68,4 +77,18 @@ $breakpoints : ( //Breakpoints for the media queries
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+}
+
+@mixin sort-element-styling {
+    background-color: var(--buttons-bg-color);
+    color: var(--buttons-color);
+
+    font-size: 16px;
+    text-align: left;
+
+    padding: 14px;
+
+    width: 170px;
+
+    border-radius: var(--buttons-border-radius);
 }
