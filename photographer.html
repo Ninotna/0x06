@@ -134,8 +134,8 @@
       <!-- Modale pour le carroussel (lightbox) -->
       <dialog class="lightbox__modal">
         <div class="lightbox__content">
-          <button type="button" class="lightbox__button-close-dialog">
-            <i class="fa-solid fa-xmark lightbox__button-close-dialog-icon"></i>
+          <button type="button" class="lightbox__button-close-modal">
+            <i class="fa-solid fa-xmark lightbox__button-close-modal-icon"></i>
           </button>
 
           <button type="button" class="lightbox__button-previous">
@@ -148,17 +148,13 @@
             <i class="fa-solid fa-chevron-right lightbox__button-next-icon"></i>
           </button>
 
-          <div class="lightbox__image-post-description">
-            <div class="lightbox__image-container">
-              <img
-                src="http://placehold.co/1050x900"
-                alt="[Description Alt]"
-                class="lightbox__image"
-              />
-              <video src="" controls class="lightbox__video hide"></video>
-            </div>
-            <p class="lightbox__post-description">Description</p>
-          </div>
+          <div class="lightbox__media-post-description" role="group" aria-roledescription="slide">
+          <div class="lightbox__media-container">
+            <img src="" alt="" class="lightbox__media hide">
+            <video src="" controls class="lightbox__media hide"></video>
+        </div>
+        <p class="lightbox__post-description"></p>
+        </div>
         </div>
       </dialog>
       <!-- FIN DE LA MODALE pour LA LIGHTBOX-->

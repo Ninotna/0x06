@@ -1,4 +1,4 @@
-// photographerFilter.js
+// photographerSort.js
 
 // Fonction de tri par popularité (likes)
 export function sortByLikes(mediaArray) {

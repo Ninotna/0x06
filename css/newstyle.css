@@ -432,10 +432,10 @@ button ul {
   height: 100%;
 }
 .contact__modal::-webkit-backdrop {
-  background-color: var(--modal-backdrop-bg-color);
+  background-color: rgba(196, 196, 196, 0.4);
 }
 .contact__modal::backdrop {
-  background-color: var(--modal-backdrop-bg-color);
+  background-color: rgba(196, 196, 196, 0.4);
 }
 .contact__title-button {
   display: flex;
@@ -538,6 +538,12 @@ button ul {
     width: 100%;
   }
 }
+.lightbox__modal::-webkit-backdrop {
+  background-color: #e5e5e5;
+}
+.lightbox__modal::backdrop {
+  background-color: rgba(229, 229, 229, 0.4);
+}
 .lightbox__content {
   position: relative;
   height: 100%;
@@ -582,7 +588,7 @@ button ul {
 .lightbox__button-next-icon {
   font-size: 35px;
 }
-.lightbox__image-post-description {
+.lightbox__media-post-description {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -590,7 +596,7 @@ button ul {
   height: 90%;
   width: 90%;
 }
-.lightbox__image-container {
+.lightbox__media-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -598,34 +604,19 @@ button ul {
   gap: 0px;
   width: 100%;
 }
-.lightbox__image {
+.lightbox__media {
   border-radius: var(--buttons-border-radius);
-  width: 850px;
-  height: 650px;
+  max-width: 80%;
+  max-height: 650px;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center;
   object-position: center;
 }
 @media screen and (max-width: 768px) {
-  .lightbox__image {
-    width: 275px;
-    height: 175px;
-  }
-}
-.lightbox__video {
-  border-radius: var(--buttons-border-radius);
-  width: 850px;
-  height: 650px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-}
-@media screen and (max-width: 768px) {
-  .lightbox__video {
-    width: 275px;
-    height: 175px;
+  .lightbox__media {
+    width: 70%;
+    height: 80%;
   }
 }
 .lightbox__post-description {
@@ -633,12 +624,6 @@ button ul {
   bottom: 22px;
   left: 81px;
   color: var(--text-color-secondary);
-}
-.lightbox::-webkit-backdrop {
-  background-color: var(--modal-lightbox-backdrop-bg-color);
-}
-.lightbox::backdrop {
-  background-color: var(--modal-lightbox-backdrop-bg-color);
 }
 
 .profile__card-container {

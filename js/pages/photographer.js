@@ -1,3 +1,5 @@
+// photographer.js
+
 // Importation des modules et classes nécessaires pour cette page
 import PhotographersApi from "../apis/photographersApi.js";
 import PhotographerProfileTemplate from "../templates/photographerProfile.js";
@@ -8,7 +10,10 @@ import {
   getPostsOfUser,
   cleanUpEventListeners,
 } from "../utils/photographerUtils.js";
-import { ContactModal,ContactFormBuilder } from "../components/ContactModal.js";
+import {
+  ContactModal,
+  ContactFormBuilder,
+} from "../components/ContactModal.js";
 import { CarouselLightbox } from "../components/CarouselLightbox.js";
 import {
   getTotalLikes,
@@ -26,7 +31,7 @@ class PhotographerApp {
   constructor() {
     // Création d'une instance de PhotographersApi pour accéder aux données des photographes et de leurs publications
     this.usersDataApi = new PhotographersApi(
-      "http://127.0.0.1:5500/v1.1/data/photographers.json"
+      "http://127.0.0.1:5500/v1.2/data/photographers.json"
     );
   }
 
@@ -142,6 +147,13 @@ class PhotographerApp {
 
       // Met à jour l'ordre des images dans la lightbox
       carousel.photographerMediaArray = sortedArray;
+
+      // Réattacher les écouteurs d'événements pour chaque post afin d'ouvrir la lightbox
+      postsContainer.querySelectorAll(".post-class").forEach((postElement) => {
+        postElement.addEventListener("click", (e) => {
+          carousel.displayLightboxModal(e);
+        });
+      });
     });
   }
 }
