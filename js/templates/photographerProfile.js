@@ -44,8 +44,10 @@ export default class PhotographerProfileTemplate {
 
         const postElement = document.importNode(template.content, true);
 
+        console.log(this.card);
+
         postElement.querySelector('.images__post-container').setAttribute('data-post-id', this.card.id);
-        postElement.querySelector('.images__post-container').setAttribute('data-photographers-id', this.card.photographersId);
+        postElement.querySelector('.images__post-container').setAttribute('data-photographer-id', this.card.photographerId);
         postElement.querySelector('.images__post-container').setAttribute('data-publishing-date', this.card.date);
         postElement.querySelector('.images__post-container').setAttribute('data-likes', this.card.likes);
         postElement.querySelector('.images__post-container').setAttribute('data-title', this.card.title);

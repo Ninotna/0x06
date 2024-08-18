@@ -14,3 +14,17 @@ export function sortByDate(mediaArray) {
 export function sortByTitle(mediaArray) {
     return mediaArray.sort((a, b) => a.title.localeCompare(b.title));
 }
+
+// Fonction de tri pour les écrans larges
+export function sortPostsForWidescreens(sortFunction) {
+    const property = document.querySelector(".dropdown-menu__sort-button").dataset.sortProperty;
+    const sortedArray = sortFunction(property);
+    return sortedArray;
+}
+
+// Fonction de tri pour les mobiles
+export function sortPostsForMobile(sortFunction) {
+    const property = document.getElementById("select").value;
+    const sortedArray = sortFunction(property);
+    return sortedArray;
+}
