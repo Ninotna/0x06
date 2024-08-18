@@ -32,6 +32,12 @@
     height: 313px;
     @include center-flex;
     // padding:0 40px 0 40px;
+
+    @include mobile-only {
+      height:auto;
+    }
+
+
   }
 
 
@@ -102,6 +108,7 @@
 
     @include mobile-only {
       font-size: 20px;
+      text-align:center;
     }
 
     @include tablet-only {
@@ -116,6 +123,7 @@
 
     @include mobile-only {
       font-size: 16px;
+      text-align:center;
     }
 
     @include tablet-only {

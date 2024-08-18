@@ -501,6 +501,11 @@ button ul {
   align-items: center;
   gap: 0px;
 }
+@media screen and (max-width: 768px) {
+  .main__profile-wrapper {
+    height: auto;
+  }
+}
 .main__profile-banner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -569,6 +574,7 @@ button ul {
 @media screen and (max-width: 768px) {
   .profile__location {
     font-size: 20px;
+    text-align: center;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -584,6 +590,7 @@ button ul {
 @media screen and (max-width: 768px) {
   .profile__tagline {
     font-size: 16px;
+    text-align: center;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
