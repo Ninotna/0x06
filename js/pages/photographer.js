@@ -6,6 +6,7 @@ import { CarouselLightbox } from "../components/CarouselLightbox.js";
 import { cleanUpEventListeners } from "../utils/domUtils.js";
 import getParameter from "../utils/getParameters.js";
 import { getUserInfos, getPostsOfUser } from "../utils/photographerUtils.js";
+import { PhotographerData } from "../utils/PhotographerData.js";
 
 class PhotographerApp {
   constructor() {

@@ -1,7 +1,7 @@
 // PhotographerEventHandler.js
 import { sortPostsByProperty } from "../utils/photographerSort.js";
 import { PhotographerUIManager } from "../components/PhotographerUiManager.js";
-import { PhotographerData } from "../utils/PhotographerData.js";
+import { PhotographerData } from "./PhotographerData.js";
 
 
 export class PhotographerEventHandler {
