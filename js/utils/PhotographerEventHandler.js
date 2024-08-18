@@ -5,29 +5,36 @@ import { PhotographerData } from "../utils/PhotographerData.js";
 
 
 export class PhotographerEventHandler {
-    static handleLikeClicks(mediaArray, photographerId) {
-        const likeButtons = document.querySelectorAll(".images__post-like-button");
+  static handleLikeClicks(mediaArray, photographerId) {
+    const likeButtons = document.querySelectorAll(".images__post-like-button");
 
-        likeButtons.forEach((button) => {
-            button.addEventListener("click", (event) => {
-                const mediaId = parseInt(
-                    event.currentTarget.closest(".images__post-container").dataset.postId
+    // Nettoyez les anciens écouteurs d'événements pour éviter les doublons
+    likeButtons.forEach((button) => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+
+    // Attachez les nouveaux écouteurs d'événements
+    const newLikeButtons = document.querySelectorAll(".images__post-like-button");
+    newLikeButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const mediaId = parseInt(
+                event.currentTarget.closest(".images__post-container").dataset.postId
+            );
+            const newLikeCount = PhotographerData.increaseLike(mediaArray, mediaId);
+
+            if (newLikeCount !== null) {
+                event.currentTarget.innerHTML = `${newLikeCount} <i class="fa-solid fa-heart"></i>`;
+                const totalLikes = PhotographerData.getTotalLikes(mediaArray, photographerId);
+                PhotographerUIManager.updateElementContent(
+                    ".main__likes p",
+                    `${totalLikes} <i class="fa-solid fa-heart"></i>`
                 );
-                
-                // Call the increaseLike function as a static method of PhotographerData
-                const newLikeCount = PhotographerData.increaseLike(mediaArray, mediaId);
-
-                if (newLikeCount !== null) {
-                    event.currentTarget.innerHTML = `${newLikeCount} <i class="fa-solid fa-heart"></i>`;
-                    const totalLikes = PhotographerData.getTotalLikes(mediaArray, photographerId);
-                    PhotographerUIManager.updateElementContent(
-                        ".main__likes p",
-                        `${totalLikes} <i class="fa-solid fa-heart"></i>`
-                    );
-                }
-            });
+            }
         });
-  }
+    });
+}
+
 
   static handleSortChange(
     mediaArray,
