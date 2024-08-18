@@ -1,7 +1,7 @@
 import PhotographerProfileTemplate from "../templates/photographerProfile.js";
 import { PhotographerFactory } from "../factories/media.js";
-import { PhotographerData } from "../utils/PhotographerData.js";
-import {PhotographerEventHandler} from '../utils/PhotographerEventHandler.js';
+import { PhotographerData } from "../utils/PhotographerData.js"
+import { PhotographerEventHandler } from '../utils/PhotographerEventHandler.js';
 
 
 export class PhotographerUIManager {
