@@ -11,98 +11,99 @@
 
     @include sort-element-styling;
 }
-
 .images__sorter {
-  // margin-left: 25px;
-  display: flex;
-  justify-content: flex-start;
-  gap: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Ajouté pour centrer verticalement le texte */
+    gap: 25px;
+    margin-top:9px;
 
-  @include mobile-only {
-    justify-content: center;
-    align-items: center;
-  }
+    @include mobile-only {
+        justify-content: center;
+        align-items: center;
+    }
 
-  &__select-container {
-    //Relative to the icon container, line: 570
-    position: relative;
-  }
+    &__select-container {
+        position: relative;
+    }
 }
 
 .dropdown-menu {
-    margin-top: -5px;
+    margin-top: 0;
     background-color: var(--buttons-bg-color);
     width: 170px;
     max-height: 170px;
     border-radius: 0 0 var(--buttons-border-radius) var(--buttons-border-radius);
-  
+    position: absolute;
+    z-index: 1000;
+    display: none;
+
     @include mobile-only {
-        display: none; // Cache le menu dropdown sur mobile
+        display: none;
     }
-  
-    &__select {
-        display: block; // Affiche le select uniquement sur mobile
-  
-        @include mobile-only {
-            display: block; // Assure que le select est visible sur mobile
-        }
-  
-        @include desktop-only {
-            display: none; // Cache le select sur desktop
-        }
+
+    &.show {
+        display: block;
     }
-  
+
     &__sort-button {
-        display: block; // Affiche le bouton de tri par défaut
-  
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background-color: var(--buttons-bg-color);
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+
         @include mobile-only {
-            display: none; // Cache le bouton de tri sur mobile
+            display: none;
         }
-  
-        @include desktop-only {
-            @include sort-element-styling; // Applique le style sur desktop
+
+        @media screen and (min-width: 768px) {
+            @include sort-element-styling;
         }
+
+        position: relative;
     }
-  
-    &__icon-container {
-        position: absolute;
-        right: 25px;
-        top: 18px;
-        transition: transform 250ms ease-out; // Transition pour la rotation de l'icône
-        aspect-ratio: 1 / 1;
-        height: 12px;
-        @include center-flex; // Centre l'icône dans son conteneur
-    }
-  
+
     &__icon {
         font-size: 14px;
         color: var(--buttons-color);
-        position: absolute;
+        transition: transform 0.3s ease;
     }
-  
-    &__list {
-        height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+
+    &.show &__icon {
+        transform: rotate(180deg);
+        content: "^"; /* Remplace la flèche descendante par une flèche montante */
     }
-  
-    &__list-item {
-        padding-block: 14px;
-        width: 88%;
-        text-align: left;
-        border-top: 2px solid white;
-        color: var(--buttons-color);
-        cursor: pointer;
-  
-        &:hover {
-            background-color: var(--buttons-bg-color--hover); // Changement de couleur au survol
-            color: var(--buttons-color--hover);
-        }
+}
+
+.dropdown-menu__list-item {
+    padding: 14px 10px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid white;
+    color: var(--buttons-color);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--buttons-bg-color--hover);
+        color: var(--buttons-color--hover);
     }
-  
-    &.open &__icon-container {
-        transform: rotate(180deg); // Rotation de l'icône lorsque le menu est ouvert
-    }
+}
+
+/* Style supplémentaire pour aligner "Trier par" avec le bouton */
+#titre-tri {
+    color: #000; /* Couleur du texte noire */
+    font-family: "DM Sans", sans-serif; /* Police "DM Sans" */
+    font-size: 18px; /* Taille de la police de 18px */
+    font-style: normal; /* Style de police normal */
+    font-weight: 700; /* Épaisseur de police bold */
+    line-height: normal; /* Hauteur de ligne normale */
+    margin-right: 10px; /* Ajustement de l'espacement à droite si nécessaire */
+    display: inline-block; /* Assurez-vous que l'élément est en ligne */
+    vertical-align: middle; /* Alignement vertical au milieu */
+
+
 }

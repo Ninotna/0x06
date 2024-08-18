@@ -31,6 +31,7 @@ $breakpoints : ( //Breakpoints for the media queries
     }
 }
 
+
 @mixin center-flex($gap: 0px) {
     display: flex;
     flex-direction: row;
@@ -46,6 +47,7 @@ $breakpoints : ( //Breakpoints for the media queries
     align-items: center;
     gap: $gap;
     text-align:center; 
+    justify-items: self-start;
 }
 
 @mixin left-flex-column($gap: 0px) {
@@ -83,8 +85,9 @@ $breakpoints : ( //Breakpoints for the media queries
     background-color: var(--buttons-bg-color);
     color: var(--buttons-color);
 
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
+    font-weight: 700;
 
     padding: 14px;
 

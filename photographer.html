@@ -226,12 +226,9 @@
       <!--   Posts made by the photograph   -->
       <section class="main__photographs-container" tabindex="0">
         <div class="images__sorter">
-          <label for="select" class="label">Trier par:</label>
+          <label id="titre-tri" for="select" class="label">Trier par:</label>
           <div class="images__select-container">
   
-            <div class="dropdown-menu__icon-container">
-              <i class="fa-solid fa-chevron-down dropdown-menu__icon"></i>
-            </div>
             <!--      Will be  displayed only on mobile devices   -->
             <select name="orderby" class="select" id="select"
               aria-level="Bouton pour ouvrir le menu déroulant">
@@ -242,7 +239,8 @@
             <!--      Will be displayed on widescreen devices      -->
             <button class="dropdown-menu__sort-button" type="button" role="listbox" aria-expanded="false"
               aria-level="Bouton pour ouvrir le menu déroulant" role="button">
-              Popularité
+              <span class="sort-text">Popularité</span>
+              <span class="sort-icon">v</span>
             </button>
             <div class="dropdown-menu hide">
               <ul class="dropdown-menu__list" tabindex="0">

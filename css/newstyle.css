@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --body-bg-color: white;
   --buttons-color:white;
@@ -235,8 +236,9 @@ button ul {
   display: none;
   background-color: var(--buttons-bg-color);
   color: var(--buttons-color);
-  font-size: 16px;
+  font-size: 18px;
   text-align: left;
+  font-weight: 700;
   padding: 14px;
   width: 170px;
   border-radius: var(--buttons-border-radius);
@@ -250,7 +252,9 @@ button ul {
 .images__sorter {
   display: flex;
   justify-content: flex-start;
+  align-items: center; /* Ajouté pour centrer verticalement le texte */
   gap: 25px;
+  margin-top: 9px;
 }
 @media screen and (max-width: 768px) {
   .images__sorter {
@@ -263,79 +267,66 @@ button ul {
 }
 
 .dropdown-menu {
-  margin-top: -5px;
+  margin-top: 0;
   background-color: var(--buttons-bg-color);
   width: 170px;
   max-height: 170px;
   border-radius: 0 0 var(--buttons-border-radius) var(--buttons-border-radius);
+  position: absolute;
+  z-index: 1000;
+  display: none;
 }
 @media screen and (max-width: 768px) {
   .dropdown-menu {
     display: none;
   }
 }
-.dropdown-menu__select {
+.dropdown-menu.show {
   display: block;
-}
-@media screen and (max-width: 768px) {
-  .dropdown-menu__select {
-    display: block;
-  }
-}
-@media screen and (min-width: 1150px) {
-  .dropdown-menu__select {
-    display: none;
-  }
 }
 .dropdown-menu__sort-button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--buttons-bg-color);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
 }
 @media screen and (max-width: 768px) {
   .dropdown-menu__sort-button {
     display: none;
   }
 }
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 768px) {
   .dropdown-menu__sort-button {
     background-color: var(--buttons-bg-color);
     color: var(--buttons-color);
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
+    font-weight: 700;
     padding: 14px;
     width: 170px;
     border-radius: var(--buttons-border-radius);
   }
 }
-.dropdown-menu__icon-container {
-  position: absolute;
-  right: 25px;
-  top: 18px;
-  transition: transform 250ms ease-out;
-  aspect-ratio: 1/1;
-  height: 12px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-}
 .dropdown-menu__icon {
   font-size: 14px;
   color: var(--buttons-color);
-  position: absolute;
+  transition: transform 0.3s ease;
 }
-.dropdown-menu__list {
-  height: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.dropdown-menu.show .dropdown-menu__icon {
+  transform: rotate(180deg);
+  content: "^"; /* Remplace la flèche descendante par une flèche montante */
 }
+
 .dropdown-menu__list-item {
-  padding-block: 14px;
-  width: 88%;
+  padding: 14px 10px;
+  width: 100%;
   text-align: left;
-  border-top: 2px solid white;
+  border-top: 1px solid white;
   color: var(--buttons-color);
   cursor: pointer;
 }
@@ -343,8 +334,18 @@ button ul {
   background-color: var(--buttons-bg-color--hover);
   color: var(--buttons-color--hover);
 }
-.dropdown-menu.open .dropdown-menu__icon-container {
-  transform: rotate(180deg);
+
+/* Style supplémentaire pour aligner "Trier par" avec le bouton */
+#titre-tri {
+  color: #000; /* Couleur du texte noire */
+  font-family: "DM Sans", sans-serif; /* Police "DM Sans" */
+  font-size: 18px; /* Taille de la police de 18px */
+  font-style: normal; /* Style de police normal */
+  font-weight: 700; /* Épaisseur de police bold */
+  line-height: normal; /* Hauteur de ligne normale */
+  margin-right: 10px; /* Ajustement de l'espacement à droite si nécessaire */
+  display: inline-block; /* Assurez-vous que l'élément est en ligne */
+  vertical-align: middle; /* Alignement vertical au milieu */
 }
 
 .header {
@@ -363,6 +364,7 @@ button ul {
     align-items: center;
     gap: 20px;
     text-align: center;
+    justify-items: self-start;
   }
 }
 .header__logo {
@@ -418,6 +420,7 @@ button ul {
   align-items: center;
   gap: 0px;
   text-align: center;
+  justify-items: self-start;
 }
 @media screen and (max-width: 768px) {
   .card {
@@ -448,6 +451,7 @@ button ul {
   align-items: center;
   gap: 0px;
   text-align: center;
+  justify-items: self-start;
 }
 .card__location {
   color: var(--text-color-secondary);
@@ -786,6 +790,7 @@ button ul {
   align-items: center;
   gap: 0px;
   text-align: center;
+  justify-items: self-start;
 }
 .lightbox__button-close-modal {
   position: absolute;
@@ -863,7 +868,7 @@ button ul {
 }
 
 .images {
-  margin-top: 100px;
+  margin-top: 75px;
   display: grid;
   grid-template-rows: repeat(1, 1fr);
   grid-template-columns: repeat(3, 1fr);
@@ -900,6 +905,7 @@ button ul {
   align-items: center;
   gap: 0px;
   text-align: center;
+  justify-items: self-start;
 }
 .images__post {
   display: flex;
@@ -908,6 +914,7 @@ button ul {
   align-items: center;
   gap: 0px;
   text-align: center;
+  justify-items: self-start;
   overflow: hidden;
   width: 350px;
 }
@@ -948,6 +955,7 @@ button ul {
   align-items: center;
   gap: 0px;
   text-align: center;
+  justify-items: self-start;
 }
 
 /*# sourceMappingURL=newstyle.css.map */
