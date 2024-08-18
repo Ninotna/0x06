@@ -63,6 +63,7 @@ export class CarouselLightbox {
 
   // Affiche la modale lightbox
   displayLightboxModal(e) {
+    console.log("Lightbox ouverte"); // Pour vérifier que la fonction est bien déclenchée
     e.preventDefault(); // Empêche l'action par défaut du lien ou bouton cliqué
     this.modalLightbox.classList.add("fade-in"); // Ajoute une classe pour l'animation d'apparition
     this.modalLightbox.showModal(); // Affiche la modale

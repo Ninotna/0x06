@@ -1,0 +1,108 @@
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    display: none;
+
+    @include mobile-only {
+        display: block;
+    }
+
+    @include sort-element-styling;
+}
+
+.images__sorter {
+  // margin-left: 25px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+
+  @include mobile-only {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__select-container {
+    //Relative to the icon container, line: 570
+    position: relative;
+  }
+}
+
+.dropdown-menu {
+    margin-top: -5px;
+    background-color: var(--buttons-bg-color);
+    width: 170px;
+    max-height: 170px;
+    border-radius: 0 0 var(--buttons-border-radius) var(--buttons-border-radius);
+  
+    @include mobile-only {
+        display: none; // Cache le menu dropdown sur mobile
+    }
+  
+    &__select {
+        display: block; // Affiche le select uniquement sur mobile
+  
+        @include mobile-only {
+            display: block; // Assure que le select est visible sur mobile
+        }
+  
+        @include desktop-only {
+            display: none; // Cache le select sur desktop
+        }
+    }
+  
+    &__sort-button {
+        display: block; // Affiche le bouton de tri par défaut
+  
+        @include mobile-only {
+            display: none; // Cache le bouton de tri sur mobile
+        }
+  
+        @include desktop-only {
+            @include sort-element-styling; // Applique le style sur desktop
+        }
+    }
+  
+    &__icon-container {
+        position: absolute;
+        right: 25px;
+        top: 18px;
+        transition: transform 250ms ease-out; // Transition pour la rotation de l'icône
+        aspect-ratio: 1 / 1;
+        height: 12px;
+        @include center-flex; // Centre l'icône dans son conteneur
+    }
+  
+    &__icon {
+        font-size: 14px;
+        color: var(--buttons-color);
+        position: absolute;
+    }
+  
+    &__list {
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+  
+    &__list-item {
+        padding-block: 14px;
+        width: 88%;
+        text-align: left;
+        border-top: 2px solid white;
+        color: var(--buttons-color);
+        cursor: pointer;
+  
+        &:hover {
+            background-color: var(--buttons-bg-color--hover); // Changement de couleur au survol
+            color: var(--buttons-color--hover);
+        }
+    }
+  
+    &.open &__icon-container {
+        transform: rotate(180deg); // Rotation de l'icône lorsque le menu est ouvert
+    }
+}

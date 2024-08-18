@@ -90,17 +90,33 @@
               </legend>
               <section class="contact__fieldset-section">
                 <label for="last-name" class="contact__label">Nom</label>
-                <input type="text" id="last-name" class="contact__input" name="last-name" />
-                <p class="contact__error-message hide"></p> <!-- Ajout d'un paragraphe pour afficher l'erreur -->
+                <input
+                  type="text"
+                  id="last-name"
+                  class="contact__input"
+                  name="last-name"
+                />
+                <p class="contact__error-message hide"></p>
+                <!-- Ajout d'un paragraphe pour afficher l'erreur -->
               </section>
               <section class="contact__fieldset-section">
                 <label for="first-name" class="contact__label">Prénom</label>
-                <input type="text" id="first-name" class="contact__input" name="first-name"/>
+                <input
+                  type="text"
+                  id="first-name"
+                  class="contact__input"
+                  name="first-name"
+                />
                 <p class="contact__error-message hide"></p>
               </section>
               <section class="contact__fieldset-section">
-                <label for="email" class="contact__label" >Email</label>
-                <input type="email" id="email" class="contact__input" name="email" />
+                <label for="email" class="contact__label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="contact__input"
+                  name="email"
+                />
                 <p class="contact__error-message hide"></p>
               </section>
               <section class="contact__fieldset-section">
@@ -122,11 +138,13 @@
               Envoyer
             </button>
           </form>
-        <!-- Section pour le message de confirmation et le bouton de réinitialisation -->
-        <div class="contact__validated-form hide">
-          <p>Merci, votre message a été envoyé avec succès !</p>
-          <button type="button" class="button contact__reset-button">Réinitialiser le formulaire</button>
-      </div>
+          <!-- Section pour le message de confirmation et le bouton de réinitialisation -->
+          <div class="contact__validated-form hide">
+            <p>Merci, votre message a été envoyé avec succès !</p>
+            <button type="button" class="button contact__reset-button">
+              Réinitialiser le formulaire
+            </button>
+          </div>
         </div>
       </dialog>
       <!-- FIN MODALE- CONTACT -->
@@ -148,13 +166,17 @@
             <i class="fa-solid fa-chevron-right lightbox__button-next-icon"></i>
           </button>
 
-          <div class="lightbox__media-post-description" role="group" aria-roledescription="slide">
-          <div class="lightbox__media-container">
-            <img src="" alt="" class="lightbox__media hide">
-            <video src="" controls class="lightbox__media hide"></video>
-        </div>
-        <p class="lightbox__post-description"></p>
-        </div>
+          <div
+            class="lightbox__media-post-description"
+            role="group"
+            aria-roledescription="slide"
+          >
+            <div class="lightbox__media-container">
+              <img src="" alt="" class="lightbox__media hide" />
+              <video src="" controls class="lightbox__media hide"></video>
+            </div>
+            <p class="lightbox__post-description"></p>
+          </div>
         </div>
       </dialog>
       <!-- FIN DE LA MODALE pour LA LIGHTBOX-->
@@ -201,43 +223,53 @@
         </section>
       </template>
 
-      <div class="images__sorter">
-        <label for="select" class="label">Trier par :</label>
-        <div class="images__select-container">
+      <!--   Posts made by the photograph   -->
+      <section class="main__photographs-container" tabindex="0">
+        <div class="images__sorter">
+          <label for="select" class="label">Trier par:</label>
+          <div class="images__select-container">
+  
             <div class="dropdown-menu__icon-container">
-                <i class="fa-solid fa-chevron-down dropdown-menu__icon"></i>
+              <i class="fa-solid fa-chevron-down dropdown-menu__icon"></i>
             </div>
-    
-            <!-- Sera affiché uniquement sur les appareils mobiles -->
-            <select name="orderby" class="dropdown-menu__select dropdown-menu__select--mobile-only" id="select"
-                aria-label="Bouton pour ouvrir le menu déroulant">
-                <option value="popularité" class="dropdown-menu__option">Popularité</option>
-                <option value="date" class="dropdown-menu__option">Date</option>
-                <option value="titre" class="dropdown-menu__option">Titre</option>
+            <!--      Will be  displayed only on mobile devices   -->
+            <select name="orderby" class="select" id="select"
+              aria-level="Bouton pour ouvrir le menu déroulant">
+              <option value="popularité" class="option">Popularité</option>
+              <option value="date" class="option">Date</option>
+              <option value="titre" class="option">Titre</option>
             </select>
-    
-            <!-- Sera affiché sur les appareils à grand écran -->
-            <button class="dropdown-menu__sort-button" type="button" aria-haspopup="listbox" aria-expanded="false">
-                Popularité
+            <!--      Will be displayed on widescreen devices      -->
+            <button class="dropdown-menu__sort-button" type="button" role="listbox" aria-expanded="false"
+              aria-level="Bouton pour ouvrir le menu déroulant" role="button">
+              Popularité
             </button>
-    
-            <div class="dropdown-menu hide" role="listbox">
-                <ul class="dropdown-menu__list">
-                    <li class="dropdown-menu__list-item" role="option" tabindex="0">Popularité</li>
-                    <li class="dropdown-menu__list-item" role="option" tabindex="0">Date</li>
-                    <li class="dropdown-menu__list-item" role="option" tabindex="0">Titre</li>
-                </ul>
+            <div class="dropdown-menu hide">
+              <ul class="dropdown-menu__list" tabindex="0">
+                <li class="dropdown-menu__list-item" tabindex="0">Popularité</li>
+                <li class="dropdown-menu__list-item" tabindex="0">Date</li>
+                <li class="dropdown-menu__list-item" tabindex="0">Titre</li>
+              </ul>
             </div>
+  
+  
+            <!-- Template for the dropdown menu -->
+            <template>
+  
+              <div class="dropdown-menu">
+                <ul class="dropdown-menu__list">
+                  <li class="dropdown-menu__list-item">Popularité</li>
+                  <li class="dropdown-menu__list-item">Date</li>
+                  <li class="dropdown-menu__list-item">Titre</li>
+                </ul>
+              </div>
+            </template>
+  
+          </div>
+  
         </div>
-    </div>
-    
-      <!-- Posts made by the photograph -->
-      <section class="main__photographer-container">
-        
-
-        <div class="images">
-          
-        </div>
+        <div class="images" tabindex="0" aria-label="Publications faites par le photographe">
+          </div>
       </section>
     </main>
     <!-- Template for a unique post with an image-->

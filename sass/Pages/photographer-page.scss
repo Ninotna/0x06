@@ -407,7 +407,7 @@
 
 
 .images {
-  margin-top: 35px;
+  margin-top: 100px;
 
   @include grid(1, 3, 25px);
 
@@ -423,22 +423,7 @@
     @include grid(2, 2, 15px);
   }
 
-  &__sorter {
-    // margin-left: 25px;
-    display: flex;
-    justify-content: flex-start;
-    gap: 25px;
-
-    @include mobile-only {
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  &__select-container {
-    //Relative to the icon container, line: 570
-    position: relative;
-  }
+ 
 
   &__container {
     @include center-flex-column;
@@ -487,82 +472,4 @@
   }
 }
 
-.dropdown-menu {
-  margin-top: -5px;
-  background-color: var(--buttons-bg-color);
-  width: 170px;
-  max-height: 170px;
-  border-radius: 0 0 var(--buttons-border-radius) var(--buttons-border-radius);
 
-  @include mobile-only {
-      display: none;
-  }
-
-  &__select {
-      &--mobile-only {
-          display: block;
-
-          @include mobile-only {
-              display: block;
-          }
-
-          @include desktop-only {
-              display: none;
-          }
-      }
-  }
-
-  &__sort-button {
-      display: block;
-
-      @include mobile-only {
-          display: none;
-      }
-
-      @include desktop-only {
-          @include sort-element-styling;
-      }
-  }
-
-  &__icon-container {
-      position: absolute;
-      right: 25px;
-      top: 18px;
-      transition: transform 250ms ease-out;
-      aspect-ratio: 1 / 1;
-      height: 12px;
-      @include center-flex;
-  }
-
-  &__icon {
-      font-size: 14px;
-      color: var(--buttons-color);
-      position: absolute;
-  }
-
-  &__list {
-      height: inherit;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-  }
-
-  &__list-item {
-      padding-block: 14px;
-      width: 88%;
-      text-align: left;
-      border-top: 2px solid white;
-      color: var(--buttons-color);
-      cursor: pointer;
-
-      &:hover {
-          background-color: var(--buttons-bg-color--hover);
-          color: var(--buttons-color--hover);
-      }
-  }
-
-  &.open &__icon-container {
-      transform: rotate(180deg);
-  }
-}

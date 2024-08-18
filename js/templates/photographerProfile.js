@@ -44,7 +44,7 @@ export default class PhotographerProfileTemplate {
 
         const postElement = document.importNode(template.content, true);
 
-        console.log(this.card);
+        // console.log(this.card);
 
         postElement.querySelector('.images__post-container').setAttribute('data-post-id', this.card.id);
         postElement.querySelector('.images__post-container').setAttribute('data-photographer-id', this.card.photographerId);

@@ -45,7 +45,7 @@ $breakpoints : ( //Breakpoints for the media queries
     justify-content: center;
     align-items: center;
     gap: $gap;
-    text-align:left; //ajout pour aligner les cards en colonne..
+    text-align:center; 
 }
 
 @mixin left-flex-column($gap: 0px) {
