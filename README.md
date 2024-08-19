@@ -1,82 +1,75 @@
-# Base de code du projet P6 - Parcours Front-end
+# Code du projet P6 FishEye - Parcours Javascript React
 
-## Démarrer le projet
-
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
-Début du projet P6 Fisheye by Dev87 (Antonin)
-
-Architecture JS du projet P6
+## Architecture JS du projet P6
 
 /js
 │
 ├── /components
-│   ├── baseModal.js          // Classe de base pour toutes les modales
-│   ├── lightboxModal.js      // Gestion spécifique de la modale lightbox
-│   ├── contactModal.js       // Gestion spécifique de la modale de contact
-│   ├── carousel.js           // Gestion du carrousel pour la lightbox
-│   └── mediaHandler.js       // Gestion des éléments média (images, vidéos)
+│   ├── CarouselLightbox.js          // Gestion du carrousel pour la lightbox
+│   ├── ContactModal.js              // Gestion spécifique de la modale de contact
+│   └── PhotographerUiManager.js     // Gestion de l'interface utilisateur des photographes
+│
+├── /data
+│   ├── PhotographerDataFetcher.js   // Gestion de la récupération des données des photographes
+│   └── photographersApi.js          // Gestion des appels API pour les photographes
 │
 ├── /factories
-│   └── mediaFactory.js       // Gestion de la création des éléments média
-│
-├── /utils
-│   ├── domUtils.js           // Fonctions utilitaires pour la manipulation du DOM
-│   ├── eventUtils.js         // Fonctions utilitaires pour la gestion des événements
-│   ├── photographerUtils.js  // Utilitaires pour les photographes (getUserInfos, getPostsOfUser)
-│   └── getParameters.js      // Fonction utilitaire pour obtenir les paramètres de l'URL
-│
-├── /apis
-│   └── photographersApi.js   // Gestion des appels API pour les photographes
+│   └── media.js                     // Gestion de la création des éléments média
 │
 ├── /pages
-│   ├── photographer.js       // Script principal pour la page du photographe
+│   ├── index.js                     // Script principal pour la page d'accueil
+│   └── photographer.js              // Script principal pour la page du photographe
 │
-└── main.js                   // Point d'entrée principal pour l'initialisation
+├── /templates
+│   ├── photographerDirectory.js     // Gestion de la liste des photographes
+│   └── photographerProfile.js       // Gestion du profil des photographes
+│
+├── /utils
+│   ├── domUtils.js                  // Fonctions utilitaires pour la manipulation du DOM
+│   ├── getParameters.js             // Fonction utilitaire pour obtenir les paramètres de l'URL
+│   ├── PhotographerData.js          // Fonctions utilitaires pour la gestion des données des photographes
+│   ├── PhotographerEventHandler.js  // Gestionnaire des événements liés aux photographes
+│   ├── photographerSort.js          // Fonctions de tri pour les publications des photographes
+│   └── photographerUtils.js         // Utilitaires pour les photographes (getUserInfos, getPostsOfUser)
 
 ## Description des Dossiers et Fichiers
 
-### `/components`
-
+### /components
 Ce dossier contient les composants principaux de l'interface utilisateur, chacun étant responsable d'une partie spécifique de l'application.
 
-- **baseModal.js** : Classe de base pour toutes les modales, gérant les fonctionnalités communes comme l'ouverture et la fermeture.
-- **lightboxModal.js** : Gère la modale de lightbox pour afficher les images et vidéos avec des fonctionnalités de carrousel.
-- **contactModal.js** : Gère la modale de contact pour envoyer des messages aux photographes.
-- **carousel.js** : Module pour gérer la navigation dans les images et vidéos au sein de la lightbox.
-- **mediaHandler.js** : Gère l'affichage des éléments média (images ou vidéos) dans la lightbox.
+- **CarouselLightbox.js** : Gère le carrousel pour afficher les images et vidéos dans la lightbox.
+- **ContactModal.js** : Gère la modale de contact pour envoyer des messages aux photographes.
+- **PhotographerUiManager.js** : Gère l'interface utilisateur des photographes, y compris la mise à jour de l'UI en fonction des interactions de l'utilisateur.
 
-### `/factories`
+### /data
+Ce dossier contient les modules responsables de la gestion des données.
 
+- **PhotographerDataFetcher.js** : Gère la récupération des données des photographes depuis l'API.
+- **photographersApi.js** : Gère les appels API pour récupérer les données des photographes et leurs publications.
+
+### /factories
 Ce dossier contient les modules responsables de la création dynamique des objets.
 
-- **mediaFactory.js** : Gère la création des éléments média (images ou vidéos) en fonction des données fournies.
+- **media.js** : Gère la création des éléments média (images ou vidéos) en fonction des données fournies.
 
-### `/utils`
+### /pages
+Ce dossier contient les scripts spécifiques aux pages de l'application.
 
+- **index.js** : Script principal pour la page d'accueil, initialisant et orchestrant les composants de la page.
+- **photographer.js** : Script principal pour la page du photographe, orchestrant les composants et initialisant la page.
+
+### /templates
+Ce dossier contient les modules responsables de la gestion des templates HTML pour les différentes sections de l'application.
+
+- **photographerDirectory.js** : Gère l'affichage de l'annuaire des photographes.
+- **photographerProfile.js** : Gère l'affichage et la mise à jour du profil des photographes.
+
+### /utils
 Ce dossier regroupe les fonctions utilitaires qui peuvent être utilisées dans l'ensemble du projet.
 
 - **domUtils.js** : Fonctions utilitaires pour la manipulation du DOM, telles que la création et la gestion des éléments HTML.
-- **eventUtils.js** : Fonctions utilitaires pour la gestion des événements.
-- **photographerUtils.js** : Contient des fonctions spécifiques aux photographes, comme `getUserInfos` et `getPostsOfUser`.
 - **getParameters.js** : Fonction utilitaire pour extraire les paramètres de l'URL.
-
-### `/apis`
-
-Ce dossier contient les modules qui gèrent les interactions avec les APIs.
-
-- **photographersApi.js** : Gère les appels API pour récupérer les données des photographes et leurs publications.
-
-### `/pages`
-
-Ce dossier contient les scripts spécifiques aux pages de l'application.
-
-- **photographer.js** : Script principal pour la page du photographe, orchestrant les composants et initialisant la page.
-
-### `main.js`
-
-Le point d'entrée principal du projet. Ce fichier initialise l'application en appelant les fonctions principales lors du chargement de la page.
-
-
-
-
+- **PhotographerData.js** : Contient des fonctions utilitaires pour gérer les données spécifiques aux photographes.
+- **PhotographerEventHandler.js** : Gestionnaire des événements liés aux photographes, comme les clics sur les boutons de tri ou de like.
+- **photographerSort.js** : Fonctions de tri pour organiser les publications des photographes par popularité, date, ou titre.
+- **photographerUtils.js** : Contient des fonctions spécifiques aux photographes, comme `getUserInfos` et `getPostsOfUser`.
