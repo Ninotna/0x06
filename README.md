@@ -30,8 +30,8 @@
 │   ├── **PhotographerData.js**          // Fonctions utilitaires pour la gestion des données des photographes  
 │   ├── **PhotographerEventHandler.js**  // Gestionnaire des événements liés aux photographes  
 │   ├── **photographerSort.js**          // Fonctions de tri pour les publications des photographes  
-│   └── **photographerUtils.js**         // Utilitaires pour les photographes (getUserInfos, getPostsOfUser)  
-
+│   ├── **photographerUtils.js**         // Utilitaires pour les photographes (getUserInfos, getPostsOfUser)  
+│   └── **videoControls.js**             // Gestion des contrôles vidéo pour la lightbox  
 
 ## Description des Dossiers et Fichiers
 
@@ -74,3 +74,4 @@ Ce dossier regroupe les fonctions utilitaires qui peuvent être utilisées dans 
 - **PhotographerEventHandler.js** : Gestionnaire des événements liés aux photographes, comme les clics sur les boutons de tri ou de like.
 - **photographerSort.js** : Fonctions de tri pour organiser les publications des photographes par popularité, date, ou titre.
 - **photographerUtils.js** : Contient des fonctions spécifiques aux photographes, comme `getUserInfos` et `getPostsOfUser`.
+- **videoControls.js** : Gère les contrôles vidéo (lecture, pause, etc.) pour les vidéos dans la lightbox.
