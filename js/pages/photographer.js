@@ -11,7 +11,7 @@ import { PhotographerData } from "../utils/PhotographerData.js";
 class PhotographerApp {
   constructor() {
     this.dataFetcher = new PhotographerDataFetcher(
-      "http://127.0.0.1:5500/v1.2/data/photographers.json"
+      "http://ninotna.github.io/data/photographers.json"
     );
     this.photographerMediaArray = [];
     this.photographerName = "";
