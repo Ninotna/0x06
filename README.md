@@ -2,35 +2,35 @@
 
 ## Architecture JS du projet P6
 
-/js
-│
-├── /components
-│   ├── **CarouselLightbox.js**          // Gestion du carrousel pour la lightbox
-│   ├── **ContactModal.js**              // Gestion spécifique de la modale de contact
-│   └── **PhotographerUiManager.js**     // Gestion de l'interface utilisateur des photographes
-│
-├── /data
-│   ├── **PhotographerDataFetcher.js**   // Gestion de la récupération des données des photographes
-│   └── **photographersApi.js**          // Gestion des appels API pour les photographes
-│
-├── /factories
-│   └── **media.js**                     // Gestion de la création des éléments média
-│
-├── /pages
-│   ├── **index.js**                     // Script principal pour la page d'accueil
-│   └── **photographer.js**              // Script principal pour la page du photographe
-│
-├── /templates
-│   ├── **photographerDirectory.js**     // Gestion de la liste des photographes
-│   └── **photographerProfile.js**       // Gestion du profil des photographes
-│
-├── /utils
-│   ├── **domUtils.js**                  // Fonctions utilitaires pour la manipulation du DOM
-│   ├── **getParameters.js**             // Fonction utilitaire pour obtenir les paramètres de l'URL
-│   ├── **PhotographerData.js**          // Fonctions utilitaires pour la gestion des données des photographes
-│   ├── **PhotographerEventHandler.js**  // Gestionnaire des événements liés aux photographes
-│   ├── **photographerSort.js**          // Fonctions de tri pour les publications des photographes
-│   └── **photographerUtils.js**         // Utilitaires pour les photographes (getUserInfos, getPostsOfUser)
+/js  
+│  
+├── /components  
+│   ├── **CarouselLightbox.js**          // Gestion du carrousel pour la lightbox  
+│   ├── **ContactModal.js**              // Gestion spécifique de la modale de contact  
+│   └── **PhotographerUiManager.js**     // Gestion de l'interface utilisateur des photographes  
+│  
+├── /data  
+│   ├── **PhotographerDataFetcher.js**   // Gestion de la récupération des données des photographes  
+│   └── **photographersApi.js**          // Gestion des appels API pour les photographes  
+│  
+├── /factories  
+│   └── **media.js**                     // Gestion de la création des éléments média  
+│  
+├── /pages  
+│   ├── **index.js**                     // Script principal pour la page d'accueil  
+│   └── **photographer.js**              // Script principal pour la page du photographe  
+│  
+├── /templates  
+│   ├── **photographerDirectory.js**     // Gestion de la liste des photographes  
+│   └── **photographerProfile.js**       // Gestion du profil des photographes  
+│  
+├── /utils  
+│   ├── **domUtils.js**                  // Fonctions utilitaires pour la manipulation du DOM  
+│   ├── **getParameters.js**             // Fonction utilitaire pour obtenir les paramètres de l'URL  
+│   ├── **PhotographerData.js**          // Fonctions utilitaires pour la gestion des données des photographes  
+│   ├── **PhotographerEventHandler.js**  // Gestionnaire des événements liés aux photographes  
+│   ├── **photographerSort.js**          // Fonctions de tri pour les publications des photographes  
+│   └── **photographerUtils.js**         // Utilitaires pour les photographes (getUserInfos, getPostsOfUser)  
 
 
 ## Description des Dossiers et Fichiers
