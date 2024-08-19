@@ -14,7 +14,7 @@ class PhotographerApp {
       this.dataFetcher = new PhotographerDataFetcher(
           window.location.origin.includes("http://127.0.0.1:5500")
               ? "http://127.0.0.1:5500/v1.2/data/photographers.json"
-              : "../data/photographers.json"
+              : "./data/photographers.json"
       );
       this.photographerMediaArray = [];
       this.photographerName = "";
