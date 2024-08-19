@@ -9,15 +9,19 @@ import { getUserInfos, getPostsOfUser } from "../utils/photographerUtils.js";
 import { PhotographerData } from "../utils/PhotographerData.js";
 
 class PhotographerApp {
-  constructor() {
-    this.dataFetcher = new PhotographerDataFetcher(
-      "http://ninotna.github.io/data/photographers.json"
-    );
-    this.photographerMediaArray = [];
-    this.photographerName = "";
-    this.postsContainer = null;
-    this.carousel = null;
+  constructor()
+  {
+      this.dataFetcher = new PhotographerDataFetcher(
+          window.location.origin.includes("http://127.0.0.1:5500")
+              ? "http://127.0.0.1:5500/v1.2/data/photographers.json"
+              : "../data/photographers.json"
+      );
+      this.photographerMediaArray = [];
+      this.photographerName = "";
+      this.postsContainer = null;
+      this.carousel = null;
   }
+  
 
   async init() {
     const data = await this.dataFetcher.fetchData();
