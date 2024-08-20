@@ -62,7 +62,7 @@ Ce dossier contient les scripts spécifiques aux pages de l'application.
 ### /templates
 Ce dossier contient les modules responsables de la gestion des templates HTML pour les différentes sections de l'application.
 
-- **photographerDirectory.js** : Gère l'affichage de l'annuaire des photographes.
+- **photographerDirectory.js** : Gère l'affichage de la liste des photographes.
 - **photographerProfile.js** : Gère l'affichage et la mise à jour du profil des photographes.
 
 ### /utils
