@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <!-- Meta tags-->
     <meta charset="utf-8" />
@@ -40,7 +40,7 @@
   </head>
 
   <body>
-    <header class="header" role="banner">
+    <header aria-label="En-tête de la page" class="header" role="banner">
       <a
         href="./index.html"
         class="header__logo-wrapper"
@@ -58,7 +58,7 @@
     <main class="main" role="main" aria-label="Contenu du profil photographe">
       <div class="main__daily-cost-likes">
         <div class="main__likes">
-          <p aria-label="likes">69 420 <i class="fa-solid fa-heart"></i></p>
+          <p aria-label="Le photographe a accumulé un certain nombre de likes">69 420 <i class="fa-solid fa-heart"></i></p>
         </div>
         <div class="main__daily-cost">
           <p aria-label="taux journalier du photographe">[FACTURE EN €]</p>
@@ -66,17 +66,19 @@
       </div>
 
       <!-- Modale de contact-->
-      <dialog class="contact__modal">
+      <dialog class="contact__modal" aria-labelledby="photograph-name">
         <div class="contact__modal-content">
           <div class="contact__title-button">
-            <h1 class="contact__title">
+            <h1 id="photograph-name"class="contact__title">
               Contactez-moi <br />
               [NOM] [PRÉNOM]
             </h1>
             <button type="button" class="contact__button-close-dialog">
               <i
                 class="fa-solid fa-xmark contact__button-close-dialog-icon"
-              ></i>
+                aria-label="Bouton pour fermer la modale de contact"
+              >
+            </i>
             </button>
           </div>
           <form
@@ -95,6 +97,8 @@
                   id="last-name"
                   class="contact__input"
                   name="last-name"
+                  aria-invalid="false"
+                  aria-errormessage="last-name-error"
                 />
                 <p class="contact__error-message hide"></p>
                 <!-- Ajout d'un paragraphe pour afficher l'erreur -->
@@ -106,6 +110,8 @@
                   id="first-name"
                   class="contact__input"
                   name="first-name"
+                  aria-invalid="false"
+                  aria-errormessage="first-name-error"
                 />
                 <p class="contact__error-message hide"></p>
               </section>
@@ -116,6 +122,8 @@
                   id="email"
                   class="contact__input"
                   name="email"
+                  aria-invalid="false"
+                  aria-errormessage="email-error"
                 />
                 <p class="contact__error-message hide"></p>
               </section>
@@ -130,11 +138,12 @@
                   rows="10"
                   class="contact__text-area"
                   name="message"
+                  aria-errormessage="message-error"
                 ></textarea>
                 <p class="contact__error-message hide"></p>
               </section>
             </fieldset>
-            <button type="submit" class="button contact__submit-button">
+            <button aria-label="Bouton pour envoyer le message" type="submit" class="button contact__submit-button">
               Envoyer
             </button>
           </form>
@@ -150,19 +159,23 @@
       <!-- FIN MODALE- CONTACT -->
 
       <!-- Modale pour le carroussel (lightbox) -->
-      <dialog class="lightbox__modal">
+      <dialog class="lightbox__modal" role="dialog" aria-label="Vue rapprochée de l'image">
         <div class="lightbox__content">
-          <button type="button" class="lightbox__button-close-modal">
+          <button type="button" class="lightbox__button-close-modal"
+          aria-label="Bouton pour fermer la lightbox">
+            
             <i class="fa-solid fa-xmark lightbox__button-close-modal-icon"></i>
           </button>
 
-          <button type="button" class="lightbox__button-previous">
+          <button type="button" class="lightbox__button-previous" aria-label="Bouton pour passer à l'image précédente"
+          >
             <i
               class="fa-solid fa-chevron-left lightbox__button-previous-icon"
             ></i>
           </button>
 
-          <button type="button" class="lightbox__button-next">
+          <button type="button" class="lightbox__button-next" aria-label="Bouton pour passer à l'image successive"
+          >
             <i class="fa-solid fa-chevron-right lightbox__button-next-icon"></i>
           </button>
 

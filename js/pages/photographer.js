@@ -9,19 +9,17 @@ import { getUserInfos, getPostsOfUser } from "../utils/photographerUtils.js";
 import { PhotographerData } from "../utils/PhotographerData.js";
 
 class PhotographerApp {
-  constructor()
-  {
-      this.dataFetcher = new PhotographerDataFetcher(
-          window.location.origin.includes("http://127.0.0.1:5500")
-              ? "http://127.0.0.1:5500/v1.2/data/photographers.json"
-              : "./data/photographers.json"
-      );
-      this.photographerMediaArray = [];
-      this.photographerName = "";
-      this.postsContainer = null;
-      this.carousel = null;
+  constructor() {
+    this.dataFetcher = new PhotographerDataFetcher(
+      window.location.origin.includes("http://127.0.0.1:5500")
+        ? "http://127.0.0.1:5500/v1.2/data/photographers.json"
+        : "./data/photographers.json"
+    );
+    this.photographerMediaArray = [];
+    this.photographerName = "";
+    this.postsContainer = null;
+    this.carousel = null;
   }
-  
 
   async init() {
     const data = await this.dataFetcher.fetchData();
@@ -85,6 +83,9 @@ class PhotographerApp {
     this.initSortChangeHandler();
 
     this.initDropdownMenu();
+
+    // // Initialise l'EventHandler pour la vidéo
+    // this.initVideoEventHandler();
   }
 
   initContactModal(photographerName) {
@@ -110,46 +111,62 @@ class PhotographerApp {
     const sortIcon = sortButton.querySelector(".sort-icon");
 
     sortButton.addEventListener("click", function () {
-        const isMenuVisible = dropDownMenu.classList.contains("show");
+      const isMenuVisible = dropDownMenu.classList.contains("show");
 
-        if (isMenuVisible) {
-            dropDownMenu.classList.remove("show");
-            sortButton.setAttribute("aria-expanded", "false");
-            sortIcon.textContent = "v";  // Flèche vers le bas
-        } else {
-            dropDownMenu.classList.add("show");
-            sortButton.setAttribute("aria-expanded", "true");
-            sortIcon.textContent = "^";  // Flèche vers le haut
+      if (isMenuVisible) {
+        dropDownMenu.classList.remove("show");
+        sortButton.setAttribute("aria-expanded", "false");
+        sortIcon.textContent = "v"; // Flèche vers le bas
+      } else {
+        dropDownMenu.classList.add("show");
+        sortButton.setAttribute("aria-expanded", "true");
+        sortIcon.textContent = "^"; // Flèche vers le haut
 
-            const dropdownItems = document.querySelectorAll('.dropdown-menu__list-item');
-            dropdownItems.forEach(item => {
-                if (item.textContent.trim() === sortButton.querySelector('.sort-text').textContent.trim()) {
-                    item.style.display = 'none';
-                } else {
-                    item.style.display = 'block';
-                }
-            });
-        }
+        const dropdownItems = document.querySelectorAll(
+          ".dropdown-menu__list-item"
+        );
+        dropdownItems.forEach((item) => {
+          if (
+            item.textContent.trim() ===
+            sortButton.querySelector(".sort-text").textContent.trim()
+          ) {
+            item.style.display = "none";
+          } else {
+            item.style.display = "block";
+          }
+        });
+      }
     });
 
-    const dropdownItems = document.querySelectorAll('.dropdown-menu__list-item');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function () {
-            sortButton.querySelector('.sort-text').textContent = this.textContent;
-            dropDownMenu.classList.remove("show");
-            sortButton.setAttribute("aria-expanded", "false");
-            sortIcon.textContent = "v";  // Flèche vers le bas
-        });
+    const dropdownItems = document.querySelectorAll(
+      ".dropdown-menu__list-item"
+    );
+    dropdownItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        sortButton.querySelector(".sort-text").textContent = this.textContent;
+        dropDownMenu.classList.remove("show");
+        sortButton.setAttribute("aria-expanded", "false");
+        sortIcon.textContent = "v"; // Flèche vers le bas
+      });
     });
 
     document.addEventListener("click", function (event) {
-        if (!sortButton.contains(event.target) && !dropDownMenu.contains(event.target)) {
-            dropDownMenu.classList.remove("show");
-            sortButton.setAttribute("aria-expanded", "false");
-            sortIcon.textContent = "v";  // Flèche vers le bas
-        }
+      if (
+        !sortButton.contains(event.target) &&
+        !dropDownMenu.contains(event.target)
+      ) {
+        dropDownMenu.classList.remove("show");
+        sortButton.setAttribute("aria-expanded", "false");
+        sortIcon.textContent = "v"; // Flèche vers le bas
+      }
     });
   }
+
+  // // Méthode pour initialiser les événements de la vidéo
+  // initVideoEventHandler() {
+  //   const videoElement = document.querySelector(".images__video");
+  //   setupVideoEventHandlers(videoElement);
+  // }
 }
 
 // Initialisation de l'application
